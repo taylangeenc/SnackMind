@@ -26,10 +26,7 @@ namespace SnackMindData.Context
 {
     public class SmContext : DbContext
     {
-        public SmContext() : base("name=connection")
-        {
-            
-        }
+        public SmContext() : base("name=connection") { }
 
         #region DbSet
         public DbSet<mdlBranch> Branches { get; set; }
