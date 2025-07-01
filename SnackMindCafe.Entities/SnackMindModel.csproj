@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7F08D2D6-6DE1-42A3-8E18-16B29D75A092}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SnackMindModel</RootNamespace>
+    <AssemblyName>SnackMindModel</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Lookup\State.cs" />
+    <Compile Include="Order\Order\mdlOrder.cs" />
+    <Compile Include="Order\Order\mdlOrderItem.cs" />
+    <Compile Include="Payment\Payment\mdlPayment.cs" />
+    <Compile Include="Place\Branch\mdlBranch.cs" />
+    <Compile Include="Place\Firm\mdlFirm.cs" />
+    <Compile Include="Place\Warehouse\mdlWarehouse.cs" />
+    <Compile Include="Place\Zone\mdlZone.cs" />
+    <Compile Include="Product\Category\mdlParentCategory.cs" />
+    <Compile Include="Product\Category\mdlProductCategory.cs" />
+    <Compile Include="Product\Product\mdlProduct.cs" />
+    <Compile Include="Product\Recipe\Ingredient\mdlIngredient.cs" />
+    <Compile Include="Product\Recipe\Recipe\mdlRecipe.cs" />
+    <Compile Include="Product\Recipe\Recipe\mdlRecipeItem.cs" />
+    <Compile Include="Product\Stock\mdlIngredientStock.cs" />
+    <Compile Include="Product\Stock\mdlIngredientStockMovement.cs" />
+    <Compile Include="Product\Stock\mdlProductStock.cs" />
+    <Compile Include="Product\Stock\mdlProductStockMovement.cs" />
+    <Compile Include="Product\Unit\mdlUnit.cs" />
+    <Compile Include="Product\Variant\mdlProductVariant.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Purchase\Purchase\mdlIngredientPurchaseOrderItem.cs" />
+    <Compile Include="Purchase\Purchase\mdlPurchaseOrder.cs" />
+    <Compile Include="Purchase\Purchase\mdlProductPurchaseOrderItem.cs" />
+    <Compile Include="Purchase\Supplier\mdlSupplier.cs" />
+    <Compile Include="Reservation\Customer\mdlCustomer.cs" />
+    <Compile Include="Reservation\Reservation\mdlReservation.cs" />
+    <Compile Include="Setting\Log\mdlLog.cs" />
+    <Compile Include="Setting\Printer\mdlPrinter.cs" />
+    <Compile Include="Table\Table\mdlTable.cs" />
+    <Compile Include="User\CashShift\mdlCashShift.cs" />
+    <Compile Include="User\Role\mdlRole.cs" />
+    <Compile Include="User\User\mdlUser.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\SnackMindCore.csproj">
+      <Project>{34ea54eb-aa19-4625-8b2a-6a1fa806bcef}</Project>
+      <Name>SnackMindCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
