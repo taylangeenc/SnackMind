@@ -53,6 +53,38 @@
   <ItemGroup>
     <Compile Include="Context\SmContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Lookup\StateRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Order\Order\OrderItemRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Order\Order\OrderRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Payment\Payment\PaymentRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Place\Branch\BranchRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Place\Firm\FirmRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Place\Warehouse\WarehouseRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Place\Zone\ZoneRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Product\Category\ParentCategoryRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Product\Category\ProductCategoryRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Product\Product\ProductRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Product\Recipe\Ingredient\IngredientRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Product\Recipe\Recipe\RecipeItemRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Product\Recipe\Recipe\RecipeRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Product\Stock\Ingredient\IngredientStockMovementRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Product\Stock\Ingredient\IngredientStockRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Product\Stock\Product\ProductStockMovementRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Product\Stock\Product\ProductStockRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Product\Unit\UnitRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Product\Variant\ProductVariantRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Purchase\Purchase\IngredientPurchaseOrderItemRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Purchase\Purchase\ProductPurchaseOrderItemRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Purchase\Purchase\PurchaseOrderRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Purchase\Supplier\SupplierRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Reservation\Customer\CustomerRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Reservation\Reservation\ReservationRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Setting\Log\LogRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Setting\Printer\PrinterRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\Table\Table\TableRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\User\CashShift\CashShiftRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\User\Role\RoleRepository.cs" />
+    <Compile Include="Repository\RepositoryBaseClass\User\User\UserRepository.cs" />
     <Compile Include="Repository\RepositoryBase\Lookup\IStateRepository.cs" />
     <Compile Include="Repository\RepositoryBase\Order\Order\IOrderItemRepository.cs" />
     <Compile Include="Repository\RepositoryBase\Order\Order\IOrderRepository.cs" />
@@ -101,9 +133,7 @@
       <Name>SnackMindModel</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repository\RepositoryBaseClass\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

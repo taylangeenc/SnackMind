@@ -1,5 +1,4 @@
-﻿using SnackMindCore.Base;
-using SnackMindCore.BaseClass;
+﻿using SnackMindCore.BaseClass;
 
 using SnackMindModel.Order.Order;
 using SnackMindModel.Payment.Payment;
@@ -10,7 +9,6 @@ using SnackMindModel.Setting.Log;
 using SnackMindModel.Setting.Printer;
 using SnackMindModel.Table.Table;
 
-using System;
 using System.Collections.Generic;
 
 namespace SnackMindModel.Lookup
