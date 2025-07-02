@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ServiceBaseClass\Lookup\State.cs" />
     <Compile Include="Service\ServiceBaseClass\SmService.cs" />
     <Compile Include="Service\ServiceBase\ISmService.cs" />
     <Compile Include="Service\ServiceBase\Lookup\IState.cs" />
@@ -91,6 +92,29 @@
       <Name>SnackMindData</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Service\ServiceBaseClass\Order\Order\" />
+    <Folder Include="Service\ServiceBaseClass\Payment\Payment\" />
+    <Folder Include="Service\ServiceBaseClass\Place\Branch\" />
+    <Folder Include="Service\ServiceBaseClass\Place\Firm\" />
+    <Folder Include="Service\ServiceBaseClass\Place\Warehouse\" />
+    <Folder Include="Service\ServiceBaseClass\Place\Zone\" />
+    <Folder Include="Service\ServiceBaseClass\Product\Category\" />
+    <Folder Include="Service\ServiceBaseClass\Product\Product\" />
+    <Folder Include="Service\ServiceBaseClass\Product\Recipe\" />
+    <Folder Include="Service\ServiceBaseClass\Product\Stock\" />
+    <Folder Include="Service\ServiceBaseClass\Product\Unit\" />
+    <Folder Include="Service\ServiceBaseClass\Product\Variant\" />
+    <Folder Include="Service\ServiceBaseClass\Purchase\Purchase\" />
+    <Folder Include="Service\ServiceBaseClass\Purchase\Supplier\" />
+    <Folder Include="Service\ServiceBaseClass\Reservation\Customer\" />
+    <Folder Include="Service\ServiceBaseClass\Reservation\Reservation\" />
+    <Folder Include="Service\ServiceBaseClass\Setting\Log\" />
+    <Folder Include="Service\ServiceBaseClass\Setting\Printer\" />
+    <Folder Include="Service\ServiceBaseClass\Table\Table\" />
+    <Folder Include="Service\ServiceBaseClass\User\CashShift\" />
+    <Folder Include="Service\ServiceBaseClass\User\Role\" />
+    <Folder Include="Service\ServiceBaseClass\User\User\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
