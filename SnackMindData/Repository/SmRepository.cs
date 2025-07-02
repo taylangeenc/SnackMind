@@ -45,9 +45,9 @@ namespace SnackMindData.Repository
             if (entity != null)
                 _dbSet.Remove(entity);
         }
-        public async Task SaveAsync()
-        {
-            await _context.SaveChangesAsync();
-        }
+        //public async Task SaveAsync()
+        //{
+        //    await _context.SaveChangesAsync();
+        //}
     }
 }

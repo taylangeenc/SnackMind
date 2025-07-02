@@ -12,6 +12,6 @@ namespace SnackMindCore.RepositoryBase
         Task AddAsync(T Entity);
         Task UpdateAsync(T Entity);
         Task DeleteAsync(Guid Ref);
-        Task SaveAsync();
+        //Task SaveAsync();
     }
 }
