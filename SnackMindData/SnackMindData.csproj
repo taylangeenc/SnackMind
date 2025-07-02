@@ -118,6 +118,8 @@
     <Compile Include="Repository\RepositoryBase\User\Role\IRoleRepository.cs" />
     <Compile Include="Repository\RepositoryBase\User\User\IUserRepository.cs" />
     <Compile Include="Repository\SmRepository.cs" />
+    <Compile Include="UnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

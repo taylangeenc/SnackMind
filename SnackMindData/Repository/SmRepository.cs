@@ -1,4 +1,5 @@
-﻿using SnackMindCore.RepositoryBase;
+﻿using SnackMindCore.BaseClass;
+using SnackMindCore.RepositoryBase;
 
 using SnackMindData.Context;
 
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace SnackMindData.Repository
 {
-    public class SmRepository<T> : ISmRepository<T> where T : class
+    public class SmRepository<T> : ISmRepository<T> where T : Entity
     {
         protected readonly SmContext _context;
         protected readonly DbSet<T> _dbSet;
