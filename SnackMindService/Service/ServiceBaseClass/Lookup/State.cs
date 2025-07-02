@@ -31,7 +31,7 @@ namespace SnackMindService.Service.ServiceBaseClass.Lookup
     {
         public mngReservationState(IUnitOfWork unitOfWork) : base(unitOfWork, unitOfWork.ReservationState)
         {
-            mngPaymentType mngPaymentType = new mngPaymentType();
+            
         }
     }
 }
