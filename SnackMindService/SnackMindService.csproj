@@ -42,9 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceBase\IService.cs" />
+    <Compile Include="Service\ServiceBaseClass\SmService.cs" />
+    <Compile Include="Service\ServiceBase\ISmService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core\SnackMindCore.csproj">
+      <Project>{34ea54eb-aa19-4625-8b2a-6a1fa806bcef}</Project>
+      <Name>SnackMindCore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SnackMindData\SnackMindData.csproj">
       <Project>{b4a25589-db50-4677-bc05-11c59ddf2f99}</Project>
       <Name>SnackMindData</Name>

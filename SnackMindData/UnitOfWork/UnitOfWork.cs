@@ -1,4 +1,6 @@
 ﻿using SnackMindData.Context;
+
+using SnackMindData.Repository.RepositoryBase.Lookup;
 using SnackMindData.Repository.RepositoryBase.Order.Order;
 using SnackMindData.Repository.RepositoryBase.Payment.Payment;
 using SnackMindData.Repository.RepositoryBase.Place.Branch;
@@ -23,6 +25,8 @@ using SnackMindData.Repository.RepositoryBase.Table.Table;
 using SnackMindData.Repository.RepositoryBase.User.CashShift;
 using SnackMindData.Repository.RepositoryBase.User.Role;
 using SnackMindData.Repository.RepositoryBase.User.User;
+
+using SnackMindData.Repository.RepositoryBaseClass.Lookup;
 using SnackMindData.Repository.RepositoryBaseClass.Order.Order;
 using SnackMindData.Repository.RepositoryBaseClass.Payment.Payment;
 using SnackMindData.Repository.RepositoryBaseClass.Place.Branch;
@@ -93,6 +97,36 @@ namespace SnackMindData.UnitOfWork
         {
             _context.Dispose();
         }
+
+        private IOrderItemStateRepository _orderItemState;
+        public IOrderItemStateRepository OrderItemState { get { return _orderItemState ?? (_orderItemState = new OrderItemStateRepository(_context)); } }
+
+        private ITableStateRepository _tableState;
+        public ITableStateRepository TableState { get { return _tableState ?? (_tableState = new TableStateRepository(_context)); } }
+
+        private IPaymentTypeRepository _paymentType;
+        public IPaymentTypeRepository PaymentType { get { return _paymentType ?? (_paymentType = new PaymentTypeRepository(_context)); } }
+
+        private IReservationStateRepository _reservationState;
+        public IReservationStateRepository ReservationState { get { return _reservationState ?? (_reservationState = new ReservationStateRepository(_context)); } }
+
+        private IStockMovementTypeRepository _stockMovementType;
+        public IStockMovementTypeRepository StockMovementType { get { return _stockMovementType ?? (_stockMovementType = new StockMovementTypeRepository(_context)); } }
+
+        private IPurchaseOrderStateRepository _purchaseOrderState;
+        public IPurchaseOrderStateRepository PurchaseOrderState { get { return _purchaseOrderState ?? (_purchaseOrderState = new PurchaseOrderStateRepository(_context)); } }
+
+        private IPrintDestinationRepository _printDestination;
+        public IPrintDestinationRepository PrintDestination { get { return _printDestination ?? (_printDestination = new PrintDestinationRepository(_context)); } }
+
+        private IPrintStateRepository _printState;
+        public IPrintStateRepository PrintState { get { return _printState ?? (_printState = new PrintStateRepository(_context)); } }
+
+        private IPrinterConnectionTypeRepository _printerConnectionType;
+        public IPrinterConnectionTypeRepository PrinterConnectionType { get { return _printerConnectionType ?? (_printerConnectionType = new PrinterConnectionTypeRepository(_context)); } }
+
+        private ILogTypeRepository _logType;
+        public ILogTypeRepository LogType { get { return _logType ?? (_logType = new LogTypeRepository(_context)); } }
 
         private IOrderRepository _order;
         public IOrderRepository Order { get { return _order ?? (_order = new OrderRepository(_context)); } }

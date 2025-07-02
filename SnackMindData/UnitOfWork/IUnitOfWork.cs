@@ -1,4 +1,5 @@
-﻿using SnackMindData.Repository.RepositoryBase.Order.Order;
+﻿using SnackMindData.Repository.RepositoryBase.Lookup;
+using SnackMindData.Repository.RepositoryBase.Order.Order;
 using SnackMindData.Repository.RepositoryBase.Payment.Payment;
 using SnackMindData.Repository.RepositoryBase.Place.Branch;
 using SnackMindData.Repository.RepositoryBase.Place.Firm;
@@ -35,6 +36,17 @@ namespace SnackMindData.UnitOfWork
         void BeginTransaction();
         void CommitTransaction();
         void RollbackTransaction();
+
+        IOrderItemStateRepository OrderItemState { get; }
+        ITableStateRepository TableState { get; }
+        IPaymentTypeRepository PaymentType { get; }
+        IReservationStateRepository ReservationState { get; }
+        IStockMovementTypeRepository StockMovementType { get; }
+        IPurchaseOrderStateRepository PurchaseOrderState { get; }
+        IPrintDestinationRepository PrintDestination { get; }
+        IPrintStateRepository PrintState { get; }
+        IPrinterConnectionTypeRepository PrinterConnectionType { get; }
+        ILogTypeRepository LogType { get; }
 
         IOrderRepository Order { get; }
         IOrderItemRepository OrderItem { get; }
