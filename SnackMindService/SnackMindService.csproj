@@ -44,16 +44,53 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\ServiceBaseClass\SmService.cs" />
     <Compile Include="Service\ServiceBase\ISmService.cs" />
+    <Compile Include="Service\ServiceBase\Lookup\IState.cs" />
+    <Compile Include="Service\ServiceBase\Order\Order\IOrderItemService.cs" />
+    <Compile Include="Service\ServiceBase\Order\Order\IOrderService.cs" />
+    <Compile Include="Service\ServiceBase\Payment\Payment\IPaymentService.cs" />
+    <Compile Include="Service\ServiceBase\Place\Branch\IBranchService.cs" />
+    <Compile Include="Service\ServiceBase\Place\Firm\IFirmService.cs" />
+    <Compile Include="Service\ServiceBase\Place\Warehouse\IWarehouseService.cs" />
+    <Compile Include="Service\ServiceBase\Place\Zone\IZoneService.cs" />
+    <Compile Include="Service\ServiceBase\Product\Category\IParentCategoryService.cs" />
+    <Compile Include="Service\ServiceBase\Product\Category\IProductCategoryService.cs" />
+    <Compile Include="Service\ServiceBase\Product\Product\IProductService.cs" />
+    <Compile Include="Service\ServiceBase\Product\Recipe\Ingredient\IIngredientService.cs" />
+    <Compile Include="Service\ServiceBase\Product\Recipe\Recipe\IRecipeItemService.cs" />
+    <Compile Include="Service\ServiceBase\Product\Recipe\Recipe\IRecipeService.cs" />
+    <Compile Include="Service\ServiceBase\Product\Stock\IIngredientStockMovementService.cs" />
+    <Compile Include="Service\ServiceBase\Product\Stock\IIngredientStockService.cs" />
+    <Compile Include="Service\ServiceBase\Product\Stock\IProductStockMovementService.cs" />
+    <Compile Include="Service\ServiceBase\Product\Stock\IProductStockService.cs" />
+    <Compile Include="Service\ServiceBase\Product\Unit\IUnitService.cs" />
+    <Compile Include="Service\ServiceBase\Product\Variant\IProductVariantService.cs" />
+    <Compile Include="Service\ServiceBase\Purchase\Purchase\IIngredientPurchaseOrderItemService.cs" />
+    <Compile Include="Service\ServiceBase\Purchase\Purchase\IProductPurchaseOrderItemService.cs" />
+    <Compile Include="Service\ServiceBase\Purchase\Purchase\IPurchaseOrderService.cs" />
+    <Compile Include="Service\ServiceBase\Purchase\Supplier\ISupplierService.cs" />
+    <Compile Include="Service\ServiceBase\Reservation\Customer\ICustomerService.cs" />
+    <Compile Include="Service\ServiceBase\Reservation\Reservation\IReservationService.cs" />
+    <Compile Include="Service\ServiceBase\Setting\Log\ILogService.cs" />
+    <Compile Include="Service\ServiceBase\Setting\Printer\IPrinterService.cs" />
+    <Compile Include="Service\ServiceBase\Table\Table\ITableService.cs" />
+    <Compile Include="Service\ServiceBase\User\CashShift\ICashShiftService.cs" />
+    <Compile Include="Service\ServiceBase\User\Role\IRoleService.cs" />
+    <Compile Include="Service\ServiceBase\User\User\IUserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\SnackMindCore.csproj">
       <Project>{34ea54eb-aa19-4625-8b2a-6a1fa806bcef}</Project>
       <Name>SnackMindCore</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SnackMindCafe.Entities\SnackMindModel.csproj">
+      <Project>{7f08d2d6-6de1-42a3-8e18-16b29d75a092}</Project>
+      <Name>SnackMindModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SnackMindData\SnackMindData.csproj">
       <Project>{b4a25589-db50-4677-bc05-11c59ddf2f99}</Project>
       <Name>SnackMindData</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
