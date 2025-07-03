@@ -80,11 +80,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Order\Order\OrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -92,6 +97,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -101,10 +110,45 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
+    <Folder Include="Controllers\Lookup\" />
+    <Folder Include="Controllers\Payment\Payment\" />
+    <Folder Include="Controllers\Place\Branch\" />
+    <Folder Include="Controllers\Place\Firm\" />
+    <Folder Include="Controllers\Place\Warehouse\" />
+    <Folder Include="Controllers\Place\Zone\" />
+    <Folder Include="Controllers\Product\Category\" />
+    <Folder Include="Controllers\Product\Product\" />
+    <Folder Include="Controllers\Product\Recipe\" />
+    <Folder Include="Controllers\Product\Stock\" />
+    <Folder Include="Controllers\Product\Unit\" />
+    <Folder Include="Controllers\Product\Variant\" />
+    <Folder Include="Controllers\Purchase\Purchase\" />
+    <Folder Include="Controllers\Purchase\Supplier\" />
+    <Folder Include="Controllers\Reservation\Customer\" />
+    <Folder Include="Controllers\Reservation\Reservation\" />
+    <Folder Include="Controllers\Setting\Log\" />
+    <Folder Include="Controllers\Setting\Printer\" />
+    <Folder Include="Controllers\Table\Table\" />
+    <Folder Include="Controllers\User\CashShift\" />
+    <Folder Include="Controllers\User\Role\" />
+    <Folder Include="Controllers\User\User\" />
+    <Folder Include="Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Order\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core\SnackMindCore.csproj">
+      <Project>{34EA54EB-AA19-4625-8B2A-6A1FA806BCEF}</Project>
+      <Name>SnackMindCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SnackMindCafe.Entities\SnackMindModel.csproj">
+      <Project>{7f08d2d6-6de1-42a3-8e18-16b29d75a092}</Project>
+      <Name>SnackMindModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SnackMindData\SnackMindData.csproj">
+      <Project>{b4a25589-db50-4677-bc05-11c59ddf2f99}</Project>
+      <Name>SnackMindData</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SnackMindService\SnackMindService.csproj">
       <Project>{7581640c-d6e2-472f-8907-4acc3a066f92}</Project>
       <Name>SnackMindService</Name>
