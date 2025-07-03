@@ -131,6 +131,286 @@ namespace SnackMindData.Context
             modelBuilder.Entity<EntityCard>().Property(x => x.Name).HasColumnType("nvarchar").HasMaxLength(100).IsRequired();
             modelBuilder.Entity<EntityCard>().Property(x => x.Description).HasColumnType("nvarchar").HasMaxLength(500).IsOptional();
             #endregion
+
+            #region Foreign Key
+            modelBuilder.Entity<mdlBranch>()
+                .HasRequired(x => x.Firm)
+                .WithMany(x => x.Branches)
+                .HasForeignKey(x => x.FirmRef);
+
+            modelBuilder.Entity<mdlWarehouse>()
+                .HasRequired(x => x.Branch)
+                .WithMany(x => x.Warehouses)
+                .HasForeignKey(x => x.BranchRef);
+
+            modelBuilder.Entity<mdlProductStock>()
+                .HasRequired(x => x.Product)
+                .WithMany(x => x.ProductStocks)
+                .HasForeignKey(x => x.ProductRef);
+            modelBuilder.Entity<mdlProductStock>()
+                .HasRequired(x => x.Unit)
+                .WithMany(x => x.ProductStocks)
+                .HasForeignKey(x => x.UnitRef);
+            modelBuilder.Entity<mdlProductStock>()
+                .HasRequired(x => x.Warehouse)
+                .WithMany(x => x.ProductStocks)
+                .HasForeignKey(x => x.WarehouseRef);
+
+            modelBuilder.Entity<mdlIngredientStock>()
+                .HasRequired(x => x.Ingredient)
+                .WithMany(x => x.IngredientStocks)
+                .HasForeignKey(x => x.IngredientRef);
+            modelBuilder.Entity<mdlIngredientStock>()
+                .HasRequired(x => x.Unit)
+                .WithMany(x => x.IngredientStocks)
+                .HasForeignKey(x => x.UnitRef);
+            modelBuilder.Entity<mdlIngredientStock>()
+                .HasRequired(x => x.Warehouse)
+                .WithMany(x => x.IngredientStocks)
+                .HasForeignKey(x => x.WarehouseRef);
+
+            modelBuilder.Entity<mdlProductStockMovement>()
+                .HasRequired(x => x.ProductStock)
+                .WithMany(x => x.ProductStockMovements)
+                .HasForeignKey(x => x.ProductStockRef);
+            modelBuilder.Entity<mdlProductStockMovement>()
+                .HasRequired(x => x.Unit)
+                .WithMany(x => x.ProductStockMovements)
+                .HasForeignKey(x => x.UnitRef);
+            modelBuilder.Entity<mdlProductStockMovement>()
+                .HasRequired(x => x.Warehouse)
+                .WithMany(x => x.ProductStockMovements)
+                .HasForeignKey(x => x.WarehouseRef);
+            modelBuilder.Entity<mdlProductStockMovement>()
+                .HasRequired(x => x.User)
+                .WithMany(x => x.ProductStockMovements)
+                .HasForeignKey(x => x.UserRef);
+            modelBuilder.Entity<mdlProductStockMovement>()
+                .HasRequired(x => x.StockMovementType)
+                .WithMany(x => x.ProductStockMovements)
+                .HasForeignKey(x => x.StockMovementTypeRef);
+
+            modelBuilder.Entity<mdlIngredientStockMovement>()
+                .HasRequired(x => x.IngredientStock)
+                .WithMany(x => x.IngredientStockMovements)
+                .HasForeignKey(x => x.IngredientStockRef);
+            modelBuilder.Entity<mdlIngredientStockMovement>()
+                .HasRequired(x => x.Unit)
+                .WithMany(x => x.IngredientStockMovements)
+                .HasForeignKey(x => x.UnitRef);
+            modelBuilder.Entity<mdlIngredientStockMovement>()
+                .HasRequired(x => x.Warehouse)
+                .WithMany(x => x.IngredientStockMovements)
+                .HasForeignKey(x => x.WarehouseRef);
+            modelBuilder.Entity<mdlIngredientStockMovement>()
+                .HasRequired(x => x.User)
+                .WithMany(x => x.IngredientStockMovements)
+                .HasForeignKey(x => x.UserRef);
+            modelBuilder.Entity<mdlIngredientStockMovement>()
+                .HasRequired(x => x.StockMovementType)
+                .WithMany(x => x.IngredientStockMovements)
+                .HasForeignKey(x => x.StockMovementTypeRef);
+
+            modelBuilder.Entity<mdlProduct>()
+                .HasRequired(x => x.Category)
+                .WithMany(x => x.Products)
+                .HasForeignKey(x => x.CategoryRef);
+            modelBuilder.Entity<mdlProduct>()
+                .HasRequired(x => x.Unit)
+                .WithMany(x => x.Products)
+                .HasForeignKey(x => x.UnitRef);
+
+            modelBuilder.Entity<mdlProduct>()
+                .HasRequired(x => x.Category)
+                .WithMany(x => x.Products)
+                .HasForeignKey(x => x.CategoryRef);
+            modelBuilder.Entity<mdlProduct>()
+                .HasRequired(x => x.Unit)
+                .WithMany(x => x.Products)
+                .HasForeignKey(x => x.UnitRef);
+
+            modelBuilder.Entity<mdlIngredient>()
+                .HasRequired(x => x.Unit)
+                .WithMany(x => x.Ingredients)
+                .HasForeignKey(x => x.UnitRef);
+
+            modelBuilder.Entity<mdlProductCategory>()
+                .HasRequired(x => x.ParentCategory)
+                .WithMany(x => x.ProductCategories)
+                .HasForeignKey(x => x.ParentCategoryRef);
+
+            modelBuilder.Entity<mdlProductVariant>()
+                .HasRequired(x => x.Product)
+                .WithMany(x => x.ProductVariants)
+                .HasForeignKey(x => x.ProductRef);
+
+            modelBuilder.Entity<mdlRecipeItem>()
+                .HasRequired(x => x.Ingredient)
+                .WithMany(x => x.RecipeItems)
+                .HasForeignKey(x => x.IngredientRef);
+            modelBuilder.Entity<mdlRecipeItem>()
+                .HasRequired(x => x.Unit)
+                .WithMany(x => x.RecipeItems)
+                .HasForeignKey(x => x.UnitRef);
+            modelBuilder.Entity<mdlRecipeItem>()
+                .HasRequired(x => x.Recipe)
+                .WithMany(x => x.RecipeItems)
+                .HasForeignKey(x => x.RecipeRef);
+
+            modelBuilder.Entity<mdlRecipe>()
+                .HasRequired(x => x.Product)
+                .WithMany(x => x.Recipes)
+                .HasForeignKey(x => x.ProductRef);
+
+            modelBuilder.Entity<mdlUser>()
+                .HasRequired(x => x.Branch)
+                .WithMany(x => x.Users)
+                .HasForeignKey(x => x.BranchRef);
+            modelBuilder.Entity<mdlUser>()
+                .HasRequired(x => x.Role)
+                .WithMany(x => x.Users)
+                .HasForeignKey(x => x.RoleRef);
+
+            modelBuilder.Entity<mdlCashShift>()
+                .HasRequired(x => x.Branch)
+                .WithMany(x => x.CashShifts)
+                .HasForeignKey(x => x.BranchRef);
+            modelBuilder.Entity<mdlCashShift>()
+                .HasRequired(x => x.User)
+                .WithMany(x => x.CashShifts)
+                .HasForeignKey(x => x.UserRef);
+
+            modelBuilder.Entity<mdlOrderItem>()
+                .HasRequired(x => x.Product)
+                .WithMany(x => x.OrderItems)
+                .HasForeignKey(x => x.ProductRef);
+            modelBuilder.Entity<mdlOrderItem>()
+                .HasRequired(x => x.ProductVariant)
+                .WithMany(x => x.OrderItems)
+                .HasForeignKey(x => x.ProductVariantRef);
+            modelBuilder.Entity<mdlOrderItem>()
+                .HasRequired(x => x.Order)
+                .WithMany(x => x.OrderItems)
+                .HasForeignKey(x => x.OrderRef);
+            modelBuilder.Entity<mdlOrderItem>()
+                .HasRequired(x => x.OrderItemState)
+                .WithMany(x => x.OrderItems)
+                .HasForeignKey(x => x.OrderItemStateRef);
+
+            modelBuilder.Entity<mdlOrder>()
+                .HasRequired(x => x.Branch)
+                .WithMany(x => x.Orders)
+                .HasForeignKey(x => x.BranchRef);
+            modelBuilder.Entity<mdlOrder>()
+                .HasRequired(x => x.Table)
+                .WithMany(x => x.Orders)
+                .HasForeignKey(x => x.TableRef);
+            modelBuilder.Entity<mdlOrder>()
+                .HasRequired(x => x.User)
+                .WithMany(x => x.Orders)
+                .HasForeignKey(x => x.UserRef);
+
+            modelBuilder.Entity<mdlTable>()
+                .HasRequired(x => x.Zone)
+                .WithMany(x => x.Tables)
+                .HasForeignKey(x => x.ZoneRef);
+            modelBuilder.Entity<mdlTable>()
+                .HasRequired(x => x.TableState)
+                .WithMany(x => x.Tables)
+                .HasForeignKey(x => x.TableStateRef);
+
+            modelBuilder.Entity<mdlReservation>()
+                .HasRequired(x => x.Table)
+                .WithMany(x => x.Reservations)
+                .HasForeignKey(x => x.TableRef);
+            modelBuilder.Entity<mdlReservation>()
+                .HasOptional(x => x.Customer)
+                .WithMany(x => x.Reservations)
+                .HasForeignKey(x => x.CustomerRef);
+            modelBuilder.Entity<mdlReservation>()
+                .HasRequired(x => x.ReservationState)
+                .WithMany(x => x.Reservations)
+                .HasForeignKey(x => x.ReservationStateRef);
+
+            modelBuilder.Entity<mdlProductPurchaseOrderItem>()
+                .HasRequired(x => x.Product)
+                .WithMany(x => x.ProductPurchaseOrderItems)
+                .HasForeignKey(x => x.ProductRef);
+            modelBuilder.Entity<mdlProductPurchaseOrderItem>()
+                .HasRequired(x => x.PurchaseOrder)
+                .WithMany(x => x.ProductPurchaseOrderItems)
+                .HasForeignKey(x => x.PurchaseOrderRef);
+
+            modelBuilder.Entity<mdlIngredientPurchaseOrderItem>()
+                .HasRequired(x => x.Ingredient)
+                .WithMany(x => x.IngredientPurchaseOrderItems)
+                .HasForeignKey(x => x.IngredientRef);
+            modelBuilder.Entity<mdlIngredientPurchaseOrderItem>()
+                .HasRequired(x => x.PurchaseOrder)
+                .WithMany(x => x.IngredientPurchaseOrderItems)
+                .HasForeignKey(x => x.PurchaseOrderRef);
+
+            modelBuilder.Entity<mdlPayment>()
+                .HasRequired(x => x.Order)
+                .WithMany(x => x.Payments)
+                .HasForeignKey(x => x.OrderRef);
+            modelBuilder.Entity<mdlPayment>()
+                .HasOptional(x => x.CashShift)
+                .WithMany(x => x.Payments)
+                .HasForeignKey(x => x.CashShiftRef);
+            modelBuilder.Entity<mdlPayment>()
+                .HasRequired(x => x.PaymentType)
+                .WithMany(x => x.Payments)
+                .HasForeignKey(x => x.PaymentTypeRef);
+
+            modelBuilder.Entity<mdlPurchaseOrder>()
+                .HasRequired(x => x.Supplier)
+                .WithMany(x => x.PurchaseOrders)
+                .HasForeignKey(x => x.SupplierRef);
+            modelBuilder.Entity<mdlPurchaseOrder>()
+                .HasRequired(x => x.PurchaseOrderState)
+                .WithMany(x => x.PurchaseOrders)
+                .HasForeignKey(x => x.PurchaseOrderStateRef);
+
+            modelBuilder.Entity<mdlZone>()
+                .HasRequired(x => x.Branch)
+                .WithMany(x => x.Zones)
+                .HasForeignKey(x => x.BranchRef);
+
+            modelBuilder.Entity<mdlPrinter>()
+                .HasRequired(x => x.Branch)
+                .WithMany(x => x.Printers)
+                .HasForeignKey(x => x.BranchRef);
+            modelBuilder.Entity<mdlPrinter>()
+                .HasRequired(x => x.PrintDestination)
+                .WithMany(x => x.Printers)
+                .HasForeignKey(x => x.PrintDestinationRef);
+            modelBuilder.Entity<mdlPrinter>()
+                .HasRequired(x => x.PrintState)
+                .WithMany(x => x.Printers)
+                .HasForeignKey(x => x.PrintStateRef);
+            modelBuilder.Entity<mdlPrinter>()
+                .HasRequired(x => x.PrinterConnectionType)
+                .WithMany(x => x.Printers)
+                .HasForeignKey(x => x.PrinterConnectionTypeRef);
+
+            modelBuilder.Entity<mdlLog>()
+                .HasRequired(x => x.Firm)
+                .WithMany(x => x.Logs)
+                .HasForeignKey(x => x.FirmRef);
+            modelBuilder.Entity<mdlLog>()
+                .HasRequired(x => x.Branch)
+                .WithMany(x => x.Logs)
+                .HasForeignKey(x => x.BranchRef);
+            modelBuilder.Entity<mdlLog>()
+                .HasRequired(x => x.User)
+                .WithMany(x => x.Logs)
+                .HasForeignKey(x => x.UserRef);
+            modelBuilder.Entity<mdlLog>()
+                .HasRequired(x => x.LogType)
+                .WithMany(x => x.Logs)
+                .HasForeignKey(x => x.LogTypeRef);
+            #endregion
         }
     }
 }
