@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnackMindService", "SnackMi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnackMindAPI", "SnackMindAPI\SnackMindAPI.csproj", "{5B173029-A2DF-4832-BC8E-C767C1DF0234}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnackMindUI", "SnackMindUI\SnackMindUI.csproj", "{F27AAF4A-C532-4F02-B111-576C89B0B7A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{5B173029-A2DF-4832-BC8E-C767C1DF0234}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B173029-A2DF-4832-BC8E-C767C1DF0234}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B173029-A2DF-4832-BC8E-C767C1DF0234}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F27AAF4A-C532-4F02-B111-576C89B0B7A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F27AAF4A-C532-4F02-B111-576C89B0B7A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F27AAF4A-C532-4F02-B111-576C89B0B7A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F27AAF4A-C532-4F02-B111-576C89B0B7A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
