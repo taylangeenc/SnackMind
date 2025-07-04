@@ -1,6 +1,4 @@
-﻿using SnackMindCore.BaseClass;
-
-using SnackMindModel.Lookup;
+﻿using SnackMindModel.Lookup;
 using SnackMindModel.Order.Order;
 using SnackMindModel.Payment.Payment;
 using SnackMindModel.Place.Branch;
@@ -31,7 +29,7 @@ namespace SnackMindData.Context
 {
     public class SmContext : DbContext
     {
-        public SmContext() : base("name=connection") { }
+        public SmContext() : base("name=SnackMindCafe") { }
 
         #region DbSet
         public DbSet<mdlFirm> Firms { get; set; }
@@ -79,6 +77,49 @@ namespace SnackMindData.Context
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            #region Map Inherit
+            modelBuilder.Entity<mdlBranch>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlCashShift>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlCustomer>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlIngredient>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlIngredientPurchaseOrderItem>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlIngredientStock>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlIngredientStockMovement>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlLog>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlOrder>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlOrderItem>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlParentCategory>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlPayment>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlProduct>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlProductPurchaseOrderItem>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlProductStock>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlProductStockMovement>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlProductVariant>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlPrinter>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlPrintDestination>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlPrintState>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlPrinterConnectionType>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlPurchaseOrder>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlProductCategory>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlRecipe>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlRecipeItem>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlReservation>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlReservationState>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlRole>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlStockMovementType>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlSupplier>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlTable>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlTableState>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlUnit>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlUser>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlWarehouse>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlZone>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlLogType>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlOrderItemState>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlPaymentType>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<mdlPurchaseOrderState>().Map(m => m.MapInheritedProperties());
+            #endregion
+
             #region Table
             modelBuilder.Entity<mdlFirm>().ToTable("Firms");
             modelBuilder.Entity<mdlBranch>().ToTable("Branches");
@@ -124,12 +165,48 @@ namespace SnackMindData.Context
             #endregion
 
             #region Primary Key
-            modelBuilder.Entity<Entity>().HasKey(x => x.Ref);
-            #endregion
+            modelBuilder.Entity<mdlBranch>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlCashShift>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlCustomer>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlFirm>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlIngredient>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlIngredientPurchaseOrderItem>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlIngredientStock>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlIngredientStockMovement>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlLog>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlLogType>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlOrder>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlOrderItem>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlOrderItemState>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlParentCategory>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlPayment>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlPaymentType>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlPrintDestination>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlPrintState>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlPrinter>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlPrinterConnectionType>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlProduct>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlProductCategory>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlProductPurchaseOrderItem>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlProductStock>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlProductStockMovement>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlProductVariant>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlPurchaseOrder>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlPurchaseOrderState>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlRecipe>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlRecipeItem>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlReservation>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlReservationState>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlRole>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlStockMovementType>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlSupplier>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlTable>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlTableState>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlUnit>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlUser>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlWarehouse>().HasKey(x => x.Ref);
+            modelBuilder.Entity<mdlZone>().HasKey(x => x.Ref);
 
-            #region Mapping
-            modelBuilder.Entity<EntityCard>().Property(x => x.Name).HasColumnType("nvarchar").HasMaxLength(100).IsRequired();
-            modelBuilder.Entity<EntityCard>().Property(x => x.Description).HasColumnType("nvarchar").HasMaxLength(500).IsOptional();
             #endregion
 
             #region Foreign Key
@@ -324,7 +401,7 @@ namespace SnackMindData.Context
                 .WithMany(x => x.Reservations)
                 .HasForeignKey(x => x.TableRef);
             modelBuilder.Entity<mdlReservation>()
-                .HasOptional(x => x.Customer)
+                .HasRequired(x => x.Customer)
                 .WithMany(x => x.Reservations)
                 .HasForeignKey(x => x.CustomerRef);
             modelBuilder.Entity<mdlReservation>()

@@ -10,7 +10,7 @@ namespace SnackMindService.Service.ServiceBaseClass.Place.Firm
 {
     public class mngFirm : SmService<mdlFirm>, IFirmService
     {
-        protected mngFirm(IUnitOfWork unitOfWork, ISmRepository<mdlFirm> repository) : base(unitOfWork, repository)
+        public mngFirm(IUnitOfWork unitOfWork, ISmRepository<mdlFirm> repository) : base(unitOfWork, repository)
         {
         }
     }

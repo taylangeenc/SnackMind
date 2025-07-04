@@ -52,6 +52,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\SmContext.cs" />
+    <Compile Include="Migrations\202507030358043_SnackMindCafe.cs" />
+    <Compile Include="Migrations\202507030358043_SnackMindCafe.Designer.cs">
+      <DependentUpon>202507030358043_SnackMindCafe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\RepositoryBaseClass\Lookup\StateRepository.cs" />
     <Compile Include="Repository\RepositoryBaseClass\Order\Order\OrderItemRepository.cs" />
@@ -135,7 +140,11 @@
       <Name>SnackMindModel</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202507030358043_SnackMindCafe.resx">
+      <DependentUpon>202507030358043_SnackMindCafe.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
