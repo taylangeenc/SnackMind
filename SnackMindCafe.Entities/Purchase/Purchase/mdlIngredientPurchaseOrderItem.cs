@@ -1,6 +1,5 @@
 ﻿using SnackMindCore.BaseClass;
 
-using SnackMindModel.Product.Product;
 using SnackMindModel.Product.Recipe.Ingredient;
 
 using System;

@@ -14,24 +14,24 @@ namespace SnackMindData.Repository.RepositoryBase.Lookup
     {
     }
     public interface IReservationStateRepository : ISmRepository<mdlReservationState>
-    { 
+    {
     }
     public interface IStockMovementTypeRepository : ISmRepository<mdlStockMovementType>
-    { 
+    {
     }
     public interface IPurchaseOrderStateRepository : ISmRepository<mdlPurchaseOrderState>
-    { 
+    {
     }
     public interface IPrintDestinationRepository : ISmRepository<mdlPrintDestination>
-    { 
+    {
     }
     public interface IPrintStateRepository : ISmRepository<mdlPrintState>
-    { 
+    {
     }
     public interface IPrinterConnectionTypeRepository : ISmRepository<mdlPrinterConnectionType>
-    { 
+    {
     }
     public interface ILogTypeRepository : ISmRepository<mdlLogType>
-    { 
+    {
     }
 }

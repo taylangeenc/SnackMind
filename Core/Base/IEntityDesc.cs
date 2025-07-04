@@ -1,6 +1,4 @@
-﻿using SnackMindCore.BaseClass;
-
-namespace SnackMindCore.Base
+﻿namespace SnackMindCore.Base
 {
     public interface IEntityDesc
     {

@@ -2,15 +2,11 @@
 
 using SnackMindModel.Product.Variant;
 
-using SnackMindService.Service.ServiceBase.Place.Zone;
 using SnackMindService.Service.ServiceBase.Product.Variant;
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Security.Policy;
 using System.Threading.Tasks;
 using System.Web.Http;
 

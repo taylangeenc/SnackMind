@@ -3,17 +3,13 @@
 
 namespace SnackMindAPI.App_Start
 {
-    using System;
-    using System.Diagnostics;
-    using System.Web;
-    using System.Web.Http;
 
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
     using Ninject.Web.Common;
+
     using Ninject.Web.Common.WebHost;
-    using Ninject.Web.WebApi;
 
     using SnackMindCore.RepositoryBase;
 
@@ -21,16 +17,22 @@ namespace SnackMindAPI.App_Start
     using SnackMindData.UnitOfWork;
 
     using SnackMindService.Service.ServiceBase.Place.Firm;
+
     using SnackMindService.Service.ServiceBaseClass.Place.Firm;
 
-    public static class NinjectWebCommon 
+    using System;
+
+    using System.Diagnostics;
+    using System.Web;
+
+    public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application.
         /// </summary>
-        public static void Start() 
+        public static void Start()
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));

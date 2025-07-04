@@ -12,28 +12,28 @@ namespace SnackMindService.Service.ServiceBaseClass.Lookup
     {
         protected mngOrderItemState(IUnitOfWork unitOfWork) : base(unitOfWork, unitOfWork.OrderItemState)
         {
-            
+
         }
     }
     public class mngTableState : SmService<mdlTableState>, ITableStateService
     {
         protected mngTableState(IUnitOfWork unitOfWork) : base(unitOfWork, unitOfWork.TableState)
         {
-            
+
         }
     }
     public class mngPaymentType : SmService<mdlPaymentType>, IPaymentTypeService
     {
         protected mngPaymentType(IUnitOfWork unitOfWork) : base(unitOfWork, unitOfWork.PaymentType)
         {
-            
+
         }
     }
     public class mngReservationState : SmService<mdlReservationState>, IReservationStateService
     {
         protected mngReservationState(IUnitOfWork unitOfWork) : base(unitOfWork, unitOfWork.ReservationState)
         {
-            
+
         }
     }
     public class mngStockMovementType : SmService<mdlStockMovementType>, IStockMovementTypeService

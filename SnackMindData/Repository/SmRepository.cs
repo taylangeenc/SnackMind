@@ -27,7 +27,7 @@ namespace SnackMindData.Repository
         }
         public virtual async Task<List<T>> GetAllAsync(Expression<Func<T, bool>> Filter = null)
         {
-            return Filter == null ?  await _dbSet.ToListAsync() : await _dbSet.Where(Filter).ToListAsync();
+            return Filter == null ? await _dbSet.ToListAsync() : await _dbSet.Where(Filter).ToListAsync();
         }
         public virtual Task AddAsync(T Entity)
         {

@@ -1,5 +1,4 @@
-﻿using SnackMindCore.Base;
-using SnackMindCore.BaseClass;
+﻿using SnackMindCore.BaseClass;
 
 using SnackMindModel.Payment.Payment;
 using SnackMindModel.Place.Branch;

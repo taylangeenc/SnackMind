@@ -2,7 +2,7 @@
 {
     using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class SnackMindCafe : DbMigration
     {
         public override void Up()
@@ -10,56 +10,56 @@
             CreateTable(
                 "dbo.Branches",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        DatabaseName = c.String(),
-                        City = c.String(),
-                        Town = c.String(),
-                        Address = c.String(),
-                        PhoneNumber = c.String(),
-                        Email = c.String(),
-                        FirmRef = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    DatabaseName = c.String(),
+                    City = c.String(),
+                    Town = c.String(),
+                    Address = c.String(),
+                    PhoneNumber = c.String(),
+                    Email = c.String(),
+                    FirmRef = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.Firms", t => t.FirmRef, cascadeDelete: false)
                 .Index(t => t.FirmRef);
-            
+
             CreateTable(
                 "dbo.CashShifts",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        OpeningCash = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        ClosingCash = c.Decimal(precision: 18, scale: 2),
-                        OpenedDate = c.DateTime(nullable: false),
-                        ClosedDate = c.DateTime(),
-                        BranchRef = c.Guid(nullable: false),
-                        UserRef = c.Guid(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    OpeningCash = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    ClosingCash = c.Decimal(precision: 18, scale: 2),
+                    OpenedDate = c.DateTime(nullable: false),
+                    ClosedDate = c.DateTime(),
+                    BranchRef = c.Guid(nullable: false),
+                    UserRef = c.Guid(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.Branches", t => t.BranchRef, cascadeDelete: false)
                 .ForeignKey("dbo.Users", t => t.UserRef, cascadeDelete: false)
                 .Index(t => t.BranchRef)
                 .Index(t => t.UserRef);
-            
+
             CreateTable(
                 "dbo.Payments",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Description = c.String(),
-                        TransactionCode = c.String(),
-                        Amount = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        PaymentDate = c.DateTime(nullable: false),
-                        OrderRef = c.Guid(nullable: false),
-                        CashShiftRef = c.Guid(),
-                        PaymentTypeRef = c.Guid(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Description = c.String(),
+                    TransactionCode = c.String(),
+                    Amount = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    PaymentDate = c.DateTime(nullable: false),
+                    OrderRef = c.Guid(nullable: false),
+                    CashShiftRef = c.Guid(),
+                    PaymentTypeRef = c.Guid(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.CashShifts", t => t.CashShiftRef)
                 .ForeignKey("dbo.Orders", t => t.OrderRef, cascadeDelete: false)
@@ -67,21 +67,21 @@
                 .Index(t => t.OrderRef)
                 .Index(t => t.CashShiftRef)
                 .Index(t => t.PaymentTypeRef);
-            
+
             CreateTable(
                 "dbo.Orders",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Description = c.String(),
-                        TotalAmount = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        IsPaid = c.Boolean(nullable: false),
-                        OpenedDate = c.DateTime(nullable: false),
-                        ClosedDate = c.DateTime(),
-                        BranchRef = c.Guid(nullable: false),
-                        TableRef = c.Guid(nullable: false),
-                        UserRef = c.Guid(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Description = c.String(),
+                    TotalAmount = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    IsPaid = c.Boolean(nullable: false),
+                    OpenedDate = c.DateTime(nullable: false),
+                    ClosedDate = c.DateTime(),
+                    BranchRef = c.Guid(nullable: false),
+                    TableRef = c.Guid(nullable: false),
+                    UserRef = c.Guid(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.Branches", t => t.BranchRef, cascadeDelete: false)
                 .ForeignKey("dbo.Tables", t => t.TableRef, cascadeDelete: false)
@@ -89,21 +89,21 @@
                 .Index(t => t.BranchRef)
                 .Index(t => t.TableRef)
                 .Index(t => t.UserRef);
-            
+
             CreateTable(
                 "dbo.OrderItems",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Description = c.String(),
-                        Quantity = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        UnitPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        IsPrintedToKitchen = c.Boolean(nullable: false),
-                        ProductRef = c.Guid(nullable: false),
-                        ProductVariantRef = c.Guid(nullable: false),
-                        OrderRef = c.Guid(nullable: false),
-                        OrderItemStateRef = c.Guid(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Description = c.String(),
+                    Quantity = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    UnitPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    IsPrintedToKitchen = c.Boolean(nullable: false),
+                    ProductRef = c.Guid(nullable: false),
+                    ProductVariantRef = c.Guid(nullable: false),
+                    OrderRef = c.Guid(nullable: false),
+                    OrderItemStateRef = c.Guid(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.Orders", t => t.OrderRef, cascadeDelete: false)
                 .ForeignKey("dbo.OrderItemStates", t => t.OrderItemStateRef, cascadeDelete: false)
@@ -113,166 +113,166 @@
                 .Index(t => t.ProductVariantRef)
                 .Index(t => t.OrderRef)
                 .Index(t => t.OrderItemStateRef);
-            
+
             CreateTable(
                 "dbo.OrderItemStates",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref);
-            
+
             CreateTable(
                 "dbo.Products",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        StockCode = c.String(),
-                        ImagePath = c.String(),
-                        Barcode = c.String(),
-                        SalesPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        CostPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        TaxRate = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        IsComposite = c.Boolean(nullable: false),
-                        CategoryRef = c.Guid(nullable: false),
-                        UnitRef = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    StockCode = c.String(),
+                    ImagePath = c.String(),
+                    Barcode = c.String(),
+                    SalesPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    CostPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    TaxRate = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    IsComposite = c.Boolean(nullable: false),
+                    CategoryRef = c.Guid(nullable: false),
+                    UnitRef = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.ProductCategories", t => t.CategoryRef, cascadeDelete: false)
                 .ForeignKey("dbo.Units", t => t.UnitRef, cascadeDelete: false)
                 .Index(t => t.CategoryRef)
                 .Index(t => t.UnitRef);
-            
+
             CreateTable(
                 "dbo.ProductCategories",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        ParentCategoryRef = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    ParentCategoryRef = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.ParentCategories", t => t.ParentCategoryRef, cascadeDelete: false)
                 .Index(t => t.ParentCategoryRef);
-            
+
             CreateTable(
                 "dbo.ParentCategories",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref);
-            
+
             CreateTable(
                 "dbo.ProductPurchaseOrderItems",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Description = c.String(),
-                        Quantity = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        UnitPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        ReceivedDate = c.DateTime(),
-                        ProductRef = c.Guid(nullable: false),
-                        PurchaseOrderRef = c.Guid(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Description = c.String(),
+                    Quantity = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    UnitPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    ReceivedDate = c.DateTime(),
+                    ProductRef = c.Guid(nullable: false),
+                    PurchaseOrderRef = c.Guid(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.Products", t => t.ProductRef, cascadeDelete: false)
                 .ForeignKey("dbo.PurchaseOrders", t => t.PurchaseOrderRef, cascadeDelete: false)
                 .Index(t => t.ProductRef)
                 .Index(t => t.PurchaseOrderRef);
-            
+
             CreateTable(
                 "dbo.PurchaseOrders",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Description = c.String(),
-                        OrderCode = c.String(),
-                        OrderDate = c.DateTime(nullable: false),
-                        ExpectedDeliveryDate = c.DateTime(),
-                        SupplierRef = c.Guid(nullable: false),
-                        PurchaseOrderStateRef = c.Guid(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Description = c.String(),
+                    OrderCode = c.String(),
+                    OrderDate = c.DateTime(nullable: false),
+                    ExpectedDeliveryDate = c.DateTime(),
+                    SupplierRef = c.Guid(nullable: false),
+                    PurchaseOrderStateRef = c.Guid(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.PurchaseOrderStates", t => t.PurchaseOrderStateRef, cascadeDelete: false)
                 .ForeignKey("dbo.Suppliers", t => t.SupplierRef, cascadeDelete: false)
                 .Index(t => t.SupplierRef)
                 .Index(t => t.PurchaseOrderStateRef);
-            
+
             CreateTable(
                 "dbo.IngredientPurchaseOrderItems",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Quantity = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        UnitPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        ReceivedDate = c.DateTime(),
-                        IngredientRef = c.Guid(nullable: false),
-                        PurchaseOrderRef = c.Guid(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Quantity = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    UnitPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    ReceivedDate = c.DateTime(),
+                    IngredientRef = c.Guid(nullable: false),
+                    PurchaseOrderRef = c.Guid(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.Ingredients", t => t.IngredientRef, cascadeDelete: false)
                 .ForeignKey("dbo.PurchaseOrders", t => t.PurchaseOrderRef, cascadeDelete: false)
                 .Index(t => t.IngredientRef)
                 .Index(t => t.PurchaseOrderRef);
-            
+
             CreateTable(
                 "dbo.Ingredients",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        CostPerUnit = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        MinStockLevel = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        MaxStockLevel = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        PurchasePrice = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        IsPerishable = c.Boolean(nullable: false),
-                        ExpirationDate = c.DateTime(),
-                        UnitRef = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    CostPerUnit = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    MinStockLevel = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    MaxStockLevel = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    PurchasePrice = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    IsPerishable = c.Boolean(nullable: false),
+                    ExpirationDate = c.DateTime(),
+                    UnitRef = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.Units", t => t.UnitRef, cascadeDelete: false)
                 .Index(t => t.UnitRef);
-            
+
             CreateTable(
                 "dbo.ProductStockMovements",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Description = c.String(),
-                        Quantity = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        MovementDate = c.DateTime(nullable: false),
-                        ProductStockRef = c.Guid(nullable: false),
-                        UnitRef = c.Guid(nullable: false),
-                        WarehouseRef = c.Guid(nullable: false),
-                        UserRef = c.Guid(nullable: false),
-                        StockMovementTypeRef = c.Guid(nullable: false),
-                        mdlIngredient_Ref = c.Guid(),
-                        mdlProduct_Ref = c.Guid(),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Description = c.String(),
+                    Quantity = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    MovementDate = c.DateTime(nullable: false),
+                    ProductStockRef = c.Guid(nullable: false),
+                    UnitRef = c.Guid(nullable: false),
+                    WarehouseRef = c.Guid(nullable: false),
+                    UserRef = c.Guid(nullable: false),
+                    StockMovementTypeRef = c.Guid(nullable: false),
+                    mdlIngredient_Ref = c.Guid(),
+                    mdlProduct_Ref = c.Guid(),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.ProductStocks", t => t.ProductStockRef, cascadeDelete: false)
                 .ForeignKey("dbo.StockMovementTypes", t => t.StockMovementTypeRef, cascadeDelete: false)
@@ -288,17 +288,17 @@
                 .Index(t => t.StockMovementTypeRef)
                 .Index(t => t.mdlIngredient_Ref)
                 .Index(t => t.mdlProduct_Ref);
-            
+
             CreateTable(
                 "dbo.ProductStocks",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Quantity = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        ProductRef = c.Guid(nullable: false),
-                        UnitRef = c.Guid(nullable: false),
-                        WarehouseRef = c.Guid(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Quantity = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    ProductRef = c.Guid(nullable: false),
+                    UnitRef = c.Guid(nullable: false),
+                    WarehouseRef = c.Guid(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.Products", t => t.ProductRef, cascadeDelete: false)
                 .ForeignKey("dbo.Units", t => t.UnitRef, cascadeDelete: false)
@@ -306,35 +306,35 @@
                 .Index(t => t.ProductRef)
                 .Index(t => t.UnitRef)
                 .Index(t => t.WarehouseRef);
-            
+
             CreateTable(
                 "dbo.Units",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Abbreviation = c.String(),
-                        IsDefault = c.Boolean(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Abbreviation = c.String(),
+                    IsDefault = c.Boolean(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref);
-            
+
             CreateTable(
                 "dbo.IngredientStockMovements",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Quantity = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        MovementDate = c.DateTime(nullable: false),
-                        IngredientStockRef = c.Guid(nullable: false),
-                        UnitRef = c.Guid(nullable: false),
-                        WarehouseRef = c.Guid(nullable: false),
-                        UserRef = c.Guid(nullable: false),
-                        StockMovementTypeRef = c.Guid(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Quantity = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    MovementDate = c.DateTime(nullable: false),
+                    IngredientStockRef = c.Guid(nullable: false),
+                    UnitRef = c.Guid(nullable: false),
+                    WarehouseRef = c.Guid(nullable: false),
+                    UserRef = c.Guid(nullable: false),
+                    StockMovementTypeRef = c.Guid(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.IngredientStocks", t => t.IngredientStockRef, cascadeDelete: false)
                 .ForeignKey("dbo.StockMovementTypes", t => t.StockMovementTypeRef, cascadeDelete: false)
@@ -346,17 +346,17 @@
                 .Index(t => t.WarehouseRef)
                 .Index(t => t.UserRef)
                 .Index(t => t.StockMovementTypeRef);
-            
+
             CreateTable(
                 "dbo.IngredientStocks",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Quantity = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        IngredientRef = c.Guid(nullable: false),
-                        UnitRef = c.Guid(nullable: false),
-                        WarehouseRef = c.Guid(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Quantity = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    IngredientRef = c.Guid(nullable: false),
+                    UnitRef = c.Guid(nullable: false),
+                    WarehouseRef = c.Guid(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.Ingredients", t => t.IngredientRef, cascadeDelete: false)
                 .ForeignKey("dbo.Units", t => t.UnitRef, cascadeDelete: false)
@@ -364,72 +364,72 @@
                 .Index(t => t.IngredientRef)
                 .Index(t => t.UnitRef)
                 .Index(t => t.WarehouseRef);
-            
+
             CreateTable(
                 "dbo.Warehouses",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        BranchRef = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    BranchRef = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.Branches", t => t.BranchRef, cascadeDelete: false)
                 .Index(t => t.BranchRef);
-            
+
             CreateTable(
                 "dbo.StockMovementTypes",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref);
-            
+
             CreateTable(
                 "dbo.Users",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        LoginName = c.String(),
-                        Password = c.String(),
-                        Email = c.String(),
-                        ImagePath = c.String(),
-                        BranchRef = c.Guid(nullable: false),
-                        RoleRef = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    LoginName = c.String(),
+                    Password = c.String(),
+                    Email = c.String(),
+                    ImagePath = c.String(),
+                    BranchRef = c.Guid(nullable: false),
+                    RoleRef = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.Branches", t => t.BranchRef, cascadeDelete: false)
                 .ForeignKey("dbo.Roles", t => t.RoleRef, cascadeDelete: false)
                 .Index(t => t.BranchRef)
                 .Index(t => t.RoleRef);
-            
+
             CreateTable(
                 "dbo.Logs",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Action = c.String(),
-                        Detail = c.String(),
-                        LoggedDate = c.DateTime(nullable: false),
-                        FirmRef = c.Guid(nullable: false),
-                        BranchRef = c.Guid(nullable: false),
-                        UserRef = c.Guid(nullable: false),
-                        LogTypeRef = c.Guid(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Action = c.String(),
+                    Detail = c.String(),
+                    LoggedDate = c.DateTime(nullable: false),
+                    FirmRef = c.Guid(nullable: false),
+                    BranchRef = c.Guid(nullable: false),
+                    UserRef = c.Guid(nullable: false),
+                    LogTypeRef = c.Guid(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.Branches", t => t.BranchRef, cascadeDelete: false)
                 .ForeignKey("dbo.Firms", t => t.FirmRef, cascadeDelete: false)
@@ -439,59 +439,59 @@
                 .Index(t => t.BranchRef)
                 .Index(t => t.UserRef)
                 .Index(t => t.LogTypeRef);
-            
+
             CreateTable(
                 "dbo.Firms",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        ImagePath = c.String(),
-                        Address = c.String(),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    ImagePath = c.String(),
+                    Address = c.String(),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref);
-            
+
             CreateTable(
                 "dbo.LogTypes",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref);
-            
+
             CreateTable(
                 "dbo.Roles",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Permission = c.String(),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Permission = c.String(),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref);
-            
+
             CreateTable(
                 "dbo.RecipeItems",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Quantity = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        IngredientRef = c.Guid(nullable: false),
-                        UnitRef = c.Guid(nullable: false),
-                        RecipeRef = c.Guid(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Quantity = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    IngredientRef = c.Guid(nullable: false),
+                    UnitRef = c.Guid(nullable: false),
+                    RecipeRef = c.Guid(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.Ingredients", t => t.IngredientRef, cascadeDelete: false)
                 .ForeignKey("dbo.Recipes", t => t.RecipeRef, cascadeDelete: false)
@@ -499,103 +499,103 @@
                 .Index(t => t.IngredientRef)
                 .Index(t => t.UnitRef)
                 .Index(t => t.RecipeRef);
-            
+
             CreateTable(
                 "dbo.Recipes",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        ProductRef = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    ProductRef = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.Products", t => t.ProductRef, cascadeDelete: false)
                 .Index(t => t.ProductRef);
-            
+
             CreateTable(
                 "dbo.PurchaseOrderStates",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref);
-            
+
             CreateTable(
                 "dbo.Suppliers",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        PhoneNumber = c.String(),
-                        Email = c.String(),
-                        Address = c.String(),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    PhoneNumber = c.String(),
+                    Email = c.String(),
+                    Address = c.String(),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref);
-            
+
             CreateTable(
                 "dbo.ProductVariants",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        ExtraPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        ProductRef = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    ExtraPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    ProductRef = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.Products", t => t.ProductRef, cascadeDelete: false)
                 .Index(t => t.ProductRef);
-            
+
             CreateTable(
                 "dbo.Tables",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Code = c.String(),
-                        Capacity = c.Int(nullable: false),
-                        IsCanReserved = c.Boolean(nullable: false),
-                        ZoneRef = c.Guid(nullable: false),
-                        TableStateRef = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Code = c.String(),
+                    Capacity = c.Int(nullable: false),
+                    IsCanReserved = c.Boolean(nullable: false),
+                    ZoneRef = c.Guid(nullable: false),
+                    TableStateRef = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.TableStates", t => t.TableStateRef, cascadeDelete: false)
                 .ForeignKey("dbo.Zones", t => t.ZoneRef, cascadeDelete: false)
                 .Index(t => t.ZoneRef)
                 .Index(t => t.TableStateRef);
-            
+
             CreateTable(
                 "dbo.Reservations",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Description = c.String(),
-                        GuestCount = c.Int(nullable: false),
-                        ReservedDate = c.DateTime(nullable: false),
-                        TableRef = c.Guid(nullable: false),
-                        CustomerRef = c.Guid(nullable: false),
-                        ReservationStateRef = c.Guid(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Description = c.String(),
+                    GuestCount = c.Int(nullable: false),
+                    ReservedDate = c.DateTime(nullable: false),
+                    TableRef = c.Guid(nullable: false),
+                    CustomerRef = c.Guid(nullable: false),
+                    ReservationStateRef = c.Guid(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.Customers", t => t.CustomerRef, cascadeDelete: false)
                 .ForeignKey("dbo.ReservationStates", t => t.ReservationStateRef, cascadeDelete: false)
@@ -603,95 +603,95 @@
                 .Index(t => t.TableRef)
                 .Index(t => t.CustomerRef)
                 .Index(t => t.ReservationStateRef);
-            
+
             CreateTable(
                 "dbo.Customers",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        PhoneNumber = c.String(),
-                        Email = c.String(),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    PhoneNumber = c.String(),
+                    Email = c.String(),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref);
-            
+
             CreateTable(
                 "dbo.ReservationStates",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref);
-            
+
             CreateTable(
                 "dbo.TableStates",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref);
-            
+
             CreateTable(
                 "dbo.Zones",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        IsOutdoor = c.Boolean(nullable: false),
-                        BranchRef = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    IsOutdoor = c.Boolean(nullable: false),
+                    BranchRef = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.Branches", t => t.BranchRef, cascadeDelete: false)
                 .Index(t => t.BranchRef);
-            
+
             CreateTable(
                 "dbo.PaymentTypes",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref);
-            
+
             CreateTable(
                 "dbo.Printers",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        IPAddress = c.String(),
-                        Quantity = c.Int(nullable: false),
-                        BranchRef = c.Guid(nullable: false),
-                        PrintDestinationRef = c.Guid(nullable: false),
-                        PrintStateRef = c.Guid(nullable: false),
-                        PrinterConnectionTypeRef = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    IPAddress = c.String(),
+                    Quantity = c.Int(nullable: false),
+                    BranchRef = c.Guid(nullable: false),
+                    PrintDestinationRef = c.Guid(nullable: false),
+                    PrintStateRef = c.Guid(nullable: false),
+                    PrinterConnectionTypeRef = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref)
                 .ForeignKey("dbo.Branches", t => t.BranchRef, cascadeDelete: false)
                 .ForeignKey("dbo.PrintDestinations", t => t.PrintDestinationRef, cascadeDelete: false)
@@ -701,48 +701,48 @@
                 .Index(t => t.PrintDestinationRef)
                 .Index(t => t.PrintStateRef)
                 .Index(t => t.PrinterConnectionTypeRef);
-            
+
             CreateTable(
                 "dbo.PrintDestinations",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref);
-            
+
             CreateTable(
                 "dbo.PrinterConnectionTypes",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref);
-            
+
             CreateTable(
                 "dbo.PrintStates",
                 c => new
-                    {
-                        Ref = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        IsActive = c.Boolean(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        UpdatedDate = c.DateTime(nullable: false),
-                    })
+                {
+                    Ref = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 100),
+                    Description = c.String(nullable: false, maxLength: 500),
+                    IsActive = c.Boolean(nullable: false),
+                    CreatedDate = c.DateTime(nullable: false),
+                    UpdatedDate = c.DateTime(nullable: false),
+                })
                 .PrimaryKey(t => t.Ref);
-            
+
         }
-        
+
         public override void Down()
         {
             DropForeignKey("dbo.Printers", "PrintStateRef", "dbo.PrintStates");
