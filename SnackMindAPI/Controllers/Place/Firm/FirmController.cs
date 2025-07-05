@@ -75,15 +75,22 @@ namespace SnackMindAPI.Controllers.Place.Firm
         [Route("{ref:guid}")]
         public async Task<IHttpActionResult> Update(Guid @ref, [FromBody] mdlFirm firm)
         {
-            if (firm == null || @ref != firm.Ref)
-                return BadRequest(new ApiResponse<object>(false, "Invalid firm data").Message);
-            var existingFirm = await _firmService.GetByRefAsync(@ref);
-            if (existingFirm == null)
-                return Content(System.Net.HttpStatusCode.NotFound, new ApiResponse<object>(false, "Firm not found"));
-            var result = await _firmService.UpdateAsync(firm);
-            if (result)
-                return Ok(new ApiResponse<object>(true, "Firm updated successfully"));
-            return InternalServerError();
+            try
+            {
+                if (firm == null || @ref != firm.Ref)
+                    return BadRequest(new ApiResponse<object>(false, "Invalid firm data").Message);
+                var existingFirm = await _firmService.GetByRefAsync(@ref);
+                if (existingFirm == null)
+                    return Content(System.Net.HttpStatusCode.NotFound, new ApiResponse<object>(false, "Firm not found"));
+                var result = await _firmService.UpdateAsync(firm);
+                if (result)
+                    return Ok(new ApiResponse<object>(true, "Firm updated successfully"));
+                return InternalServerError();
+            }
+            catch(Exception ex)
+            {
+                return InternalServerError(new Exception($"Sunucu hatası: {ex.Message}", ex));
+            }
         }
 
         [HttpDelete]

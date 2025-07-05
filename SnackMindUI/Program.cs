@@ -1,6 +1,13 @@
-﻿using DevExpress.LookAndFeel;
+﻿using Cqrs.Hosts;
+
+using DevExpress.LookAndFeel;
 using DevExpress.Skins;
 using DevExpress.UserSkins;
+
+using Microsoft.Owin;
+using Microsoft.Owin.Hosting;
+
+using SnackMindAPI;
 
 using SnackMindUI.MainForms;
 
