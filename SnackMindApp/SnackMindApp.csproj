@@ -34,6 +34,9 @@
     <Reference Include="AutoMapper, Version=15.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.15.0.1\lib\netstandard2.0\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="FluentValidation, Version=11.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.11.11.0\lib\netstandard2.0\FluentValidation.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -111,6 +114,68 @@
   <ItemGroup>
     <Compile Include="Mapping\AutoMapperProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validation\Order\OrderItem\vldCreateOrderItem.cs" />
+    <Compile Include="Validation\Order\OrderItem\vldUpdateOrderItem.cs" />
+    <Compile Include="Validation\Order\Order\vldCreateOrder.cs" />
+    <Compile Include="Validation\Order\Order\vldUpdateOrder.cs" />
+    <Compile Include="Validation\Payment\Payment\vldCreatePayment.cs" />
+    <Compile Include="Validation\Payment\Payment\vldUpdatePayment.cs" />
+    <Compile Include="Validation\Place\Branch\vldCreateBranch.cs" />
+    <Compile Include="Validation\Place\Branch\vldUpdateBranch.cs" />
+    <Compile Include="Validation\Place\Firm\vldCreateFirm.cs" />
+    <Compile Include="Validation\Place\Firm\vldUpdateFirm.cs" />
+    <Compile Include="Validation\Place\Warehouse\vldCreateWarehouse.cs" />
+    <Compile Include="Validation\Place\Warehouse\vldUpdateWarehouse.cs" />
+    <Compile Include="Validation\Place\Zone\vldCreateZone.cs" />
+    <Compile Include="Validation\Place\Zone\vldUpdateZone.cs" />
+    <Compile Include="Validation\Product\Category\ParentCategory\vldCreateParentCategory.cs" />
+    <Compile Include="Validation\Product\Category\ParentCategory\vldUpdateParentCategory.cs" />
+    <Compile Include="Validation\Product\Category\ProductCategory\vldCreateProductCategory.cs" />
+    <Compile Include="Validation\Product\Category\ProductCategory\vldUpdateProductCategory.cs" />
+    <Compile Include="Validation\Product\Ingredient\vldCreateIngredient.cs" />
+    <Compile Include="Validation\Product\Ingredient\vldUpdateIngredient.cs" />
+    <Compile Include="Validation\Product\Product\vldCreateProduct.cs" />
+    <Compile Include="Validation\Product\Product\vldUpdateProduct.cs" />
+    <Compile Include="Validation\Product\Recipe\RecipeItem\vldCreateRecipeItem.cs" />
+    <Compile Include="Validation\Product\Recipe\RecipeItem\vldUpdateRecipeItem.cs" />
+    <Compile Include="Validation\Product\Recipe\Recipe\vldCreateRecipe.cs" />
+    <Compile Include="Validation\Product\Recipe\Recipe\vldUpdateRecipe.cs" />
+    <Compile Include="Validation\Product\Stock\Ingredient\IngredientStockMovement\vldCreateIngredientStockMovement.cs" />
+    <Compile Include="Validation\Product\Stock\Ingredient\IngredientStockMovement\vldUpdateIngredientStockMovement.cs" />
+    <Compile Include="Validation\Product\Stock\Ingredient\IngredientStock\vldCreateIngredientStock.cs" />
+    <Compile Include="Validation\Product\Stock\Ingredient\IngredientStock\vldUpdateIngredientStock.cs" />
+    <Compile Include="Validation\Product\Stock\Product\ProductStockMovement\vldCreateProductStockMovement.cs" />
+    <Compile Include="Validation\Product\Stock\Product\ProductStockMovement\vldUpdateProductStockMovement.cs" />
+    <Compile Include="Validation\Product\Stock\Product\ProductStock\vldCreateProductStock.cs" />
+    <Compile Include="Validation\Product\Stock\Product\ProductStock\vldUpdateProductStock.cs" />
+    <Compile Include="Validation\Product\Unit\vldCreateUnit.cs" />
+    <Compile Include="Validation\Product\Unit\vldUpdateUnit.cs" />
+    <Compile Include="Validation\Product\Variant\vldCreateProductVariant.cs" />
+    <Compile Include="Validation\Product\Variant\vldUpdateProductVariant.cs" />
+    <Compile Include="Validation\Purchase\Purchase\Ingredient\vldCreateIngredientPurchaseOrderItem.cs" />
+    <Compile Include="Validation\Purchase\Purchase\Ingredient\vldUpdateIngredientPurchaseOrderItem.cs" />
+    <Compile Include="Validation\Purchase\Purchase\Product\vldCreateProductPurchaseOrderItem.cs" />
+    <Compile Include="Validation\Purchase\Purchase\Product\vldUpdateProductPurchaseOrderItem.cs" />
+    <Compile Include="Validation\Purchase\Purchase\Purchase\vldCreatePurchaseOrder.cs" />
+    <Compile Include="Validation\Purchase\Purchase\Purchase\vldUpdatePurchaseOrder.cs" />
+    <Compile Include="Validation\Purchase\Supplier\vldCreateSupplier.cs" />
+    <Compile Include="Validation\Purchase\Supplier\vldUpdateSupplier.cs" />
+    <Compile Include="Validation\Reservation\Customer\vldCreateCustomer.cs" />
+    <Compile Include="Validation\Reservation\Customer\vldUpdateCustomer.cs" />
+    <Compile Include="Validation\Reservation\Reservation\vldCreateReservation.cs" />
+    <Compile Include="Validation\Reservation\Reservation\vldUpdateReservation.cs" />
+    <Compile Include="Validation\Setting\Printer\vldCreatePrinter.cs" />
+    <Compile Include="Validation\Setting\Printer\vldUpdatePrinter.cs" />
+    <Compile Include="Validation\Setting\Save\vldCreateSave.cs" />
+    <Compile Include="Validation\Setting\Save\vldUpdateSave.cs" />
+    <Compile Include="Validation\Table\Table\vldCreateTable.cs" />
+    <Compile Include="Validation\Table\Table\vldUpdateTable.cs" />
+    <Compile Include="Validation\User\CashShift\vldCreateCashShift.cs" />
+    <Compile Include="Validation\User\CashShift\vldUpdateCashShift.cs" />
+    <Compile Include="Validation\User\Role\vldCreateRole.cs" />
+    <Compile Include="Validation\User\Role\vldUpdateRole.cs" />
+    <Compile Include="Validation\User\User\vldCreateUser.cs" />
+    <Compile Include="Validation\User\User\vldUpdateUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -126,5 +191,6 @@
       <Name>SnackMindModel</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,6 +7,8 @@ namespace SnackMindDTOs.DTOs.Order.Order
 {
     public class dtoCreateOrder
     {
+        public DateTime OpenedDate { get; set; }
+
         public Guid BranchRef { get; set; }
         public Guid TableRef { get; set; }
         public Guid UserRef { get; set; }
