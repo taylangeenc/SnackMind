@@ -70,7 +70,7 @@ using SnackMindModel.Model.User.CashShift;
 using SnackMindModel.Model.User.Role;
 using SnackMindModel.Model.User.User;
 
-namespace SnackMindService.Mapping
+namespace SnackMindApp.Mapping
 {
     public class AutoMapperProfile : Profile
     {
