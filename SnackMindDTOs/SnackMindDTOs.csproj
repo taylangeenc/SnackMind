@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1C240B08-257A-4DC9-B667-D498DAF33FF5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SnackMindDTOs</RootNamespace>
+    <AssemblyName>SnackMindDTOs</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DTOs\Order\OrderItemState\dtoCreateOrderItemState.cs" />
+    <Compile Include="DTOs\Order\OrderItemState\dtoDetailOrderItemState.cs" />
+    <Compile Include="DTOs\Order\OrderItemState\dtoListOrderItemState.cs" />
+    <Compile Include="DTOs\Order\OrderItemState\dtoOrderItemState.cs" />
+    <Compile Include="DTOs\Order\OrderItemState\dtoUpdateOrderItemState.cs" />
+    <Compile Include="DTOs\Order\OrderItem\dtoCreateOrderItem.cs" />
+    <Compile Include="DTOs\Order\OrderItem\dtoDetailOrderItem.cs" />
+    <Compile Include="DTOs\Order\OrderItem\dtoListOrderItem.cs" />
+    <Compile Include="DTOs\Order\OrderItem\dtoOrderItem.cs" />
+    <Compile Include="DTOs\Order\OrderItem\dtoUpdateOrderItem.cs" />
+    <Compile Include="DTOs\Order\Order\dtoCreateOrder.cs" />
+    <Compile Include="DTOs\Order\Order\dtoDetailOrder.cs" />
+    <Compile Include="DTOs\Order\Order\dtoListOrder.cs" />
+    <Compile Include="DTOs\Order\Order\dtoOrder.cs" />
+    <Compile Include="DTOs\Order\Order\dtoUpdateOrder.cs" />
+    <Compile Include="DTOs\Payment\Payment\PaymentType\dtoCreatePaymentType.cs" />
+    <Compile Include="DTOs\Payment\Payment\PaymentType\dtoDetailPaymentType.cs" />
+    <Compile Include="DTOs\Payment\Payment\PaymentType\dtoListPaymentType.cs" />
+    <Compile Include="DTOs\Payment\Payment\PaymentType\dtoPaymentType.cs" />
+    <Compile Include="DTOs\Payment\Payment\PaymentType\dtoUpdatePaymentType.cs" />
+    <Compile Include="DTOs\Payment\Payment\Payment\dtoCreatePayment.cs" />
+    <Compile Include="DTOs\Payment\Payment\Payment\dtoDetailPayment.cs" />
+    <Compile Include="DTOs\Payment\Payment\Payment\dtoListPayment.cs" />
+    <Compile Include="DTOs\Payment\Payment\Payment\dtoPayment.cs" />
+    <Compile Include="DTOs\Payment\Payment\Payment\dtoUpdatePayment.cs" />
+    <Compile Include="DTOs\Place\Branch\dtoBranch.cs" />
+    <Compile Include="DTOs\Place\Branch\dtoCreateBranch.cs" />
+    <Compile Include="DTOs\Place\Branch\dtoDetailBranch.cs" />
+    <Compile Include="DTOs\Place\Branch\dtoListBranch.cs" />
+    <Compile Include="DTOs\Place\Branch\dtoUpdateBranch.cs" />
+    <Compile Include="DTOs\Place\Firm\dtoCreateFirm.cs" />
+    <Compile Include="DTOs\Place\Firm\dtoDetailFirm.cs" />
+    <Compile Include="DTOs\Place\Firm\dtoFirm.cs" />
+    <Compile Include="DTOs\Place\Firm\dtoListFirm.cs" />
+    <Compile Include="DTOs\Place\Firm\dtoUpdateFirm.cs" />
+    <Compile Include="DTOs\Place\Warehouse\dtoCreateWarehouse.cs" />
+    <Compile Include="DTOs\Place\Warehouse\dtoDetailWarehouse.cs" />
+    <Compile Include="DTOs\Place\Warehouse\dtoListWarehouse.cs" />
+    <Compile Include="DTOs\Place\Warehouse\dtoUpdateWarehouse.cs" />
+    <Compile Include="DTOs\Place\Warehouse\dtoWarehouse.cs" />
+    <Compile Include="DTOs\Place\Zone\dtoCreateZone.cs" />
+    <Compile Include="DTOs\Place\Zone\dtoDetailZone.cs" />
+    <Compile Include="DTOs\Place\Zone\dtoListZone.cs" />
+    <Compile Include="DTOs\Place\Zone\dtoUpdateZone.cs" />
+    <Compile Include="DTOs\Place\Zone\dtoZone.cs" />
+    <Compile Include="DTOs\Product\Category\ParentCategory\dtoCreateParentCategory.cs" />
+    <Compile Include="DTOs\Product\Category\ParentCategory\dtoDetailParentCategory.cs" />
+    <Compile Include="DTOs\Product\Category\ParentCategory\dtoListParentCategory.cs" />
+    <Compile Include="DTOs\Product\Category\ParentCategory\dtoParentCategory.cs" />
+    <Compile Include="DTOs\Product\Category\ParentCategory\dtoUpdateParentCategory.cs" />
+    <Compile Include="DTOs\Product\Category\ProductCategory\dtoCreateProductCategory.cs" />
+    <Compile Include="DTOs\Product\Category\ProductCategory\dtoDetailProductCategory.cs" />
+    <Compile Include="DTOs\Product\Category\ProductCategory\dtoListProductCategory.cs" />
+    <Compile Include="DTOs\Product\Category\ProductCategory\dtoProductCategory.cs" />
+    <Compile Include="DTOs\Product\Category\ProductCategory\dtoUpdateProductCategory.cs" />
+    <Compile Include="DTOs\Product\Ingredient\dtoCreateIngredient.cs" />
+    <Compile Include="DTOs\Product\Ingredient\dtoDetailIngredient.cs" />
+    <Compile Include="DTOs\Product\Ingredient\dtoIngredient.cs" />
+    <Compile Include="DTOs\Product\Ingredient\dtoListIngredient.cs" />
+    <Compile Include="DTOs\Product\Ingredient\dtoUpdateIngredient.cs" />
+    <Compile Include="DTOs\Product\Product\dtoCreateProduct.cs" />
+    <Compile Include="DTOs\Product\Product\dtoDetailProduct.cs" />
+    <Compile Include="DTOs\Product\Product\dtoListProduct.cs" />
+    <Compile Include="DTOs\Product\Product\dtoProduct.cs" />
+    <Compile Include="DTOs\Product\Product\dtoUpdateProduct.cs" />
+    <Compile Include="DTOs\Product\Recipe\RecipeItem\dtoCreateRecipeItem.cs" />
+    <Compile Include="DTOs\Product\Recipe\RecipeItem\dtoDetailRecipeItem.cs" />
+    <Compile Include="DTOs\Product\Recipe\RecipeItem\dtoListRecipeItem.cs" />
+    <Compile Include="DTOs\Product\Recipe\RecipeItem\dtoRecipeItem.cs" />
+    <Compile Include="DTOs\Product\Recipe\RecipeItem\dtoUpdateRecipeItem.cs" />
+    <Compile Include="DTOs\Product\Recipe\Recipe\dtoCreateRecipe.cs" />
+    <Compile Include="DTOs\Product\Recipe\Recipe\dtoDetailRecipe.cs" />
+    <Compile Include="DTOs\Product\Recipe\Recipe\dtoListRecipe.cs" />
+    <Compile Include="DTOs\Product\Recipe\Recipe\dtoRecipe.cs" />
+    <Compile Include="DTOs\Product\Recipe\Recipe\dtoUpdateRecipe.cs" />
+    <Compile Include="DTOs\Product\Stock\Ingredient\IngredientStockMovement\dtoCreateIngredientStockMovement.cs" />
+    <Compile Include="DTOs\Product\Stock\Ingredient\IngredientStockMovement\dtoDetailIngredientStockMovement.cs" />
+    <Compile Include="DTOs\Product\Stock\Ingredient\IngredientStockMovement\dtoIngredientStockMovement.cs" />
+    <Compile Include="DTOs\Product\Stock\Ingredient\IngredientStockMovement\dtoListIngredientStockMovement.cs" />
+    <Compile Include="DTOs\Product\Stock\Ingredient\IngredientStockMovement\dtoUpdateIngredientStockMovement.cs" />
+    <Compile Include="DTOs\Product\Stock\Ingredient\IngredientStock\dtoCreateIngredientStock.cs" />
+    <Compile Include="DTOs\Product\Stock\Ingredient\IngredientStock\dtoDetailIngredientStock.cs" />
+    <Compile Include="DTOs\Product\Stock\Ingredient\IngredientStock\dtoIngredientStock.cs" />
+    <Compile Include="DTOs\Product\Stock\Ingredient\IngredientStock\dtoListIngredientStock.cs" />
+    <Compile Include="DTOs\Product\Stock\Ingredient\IngredientStock\dtoUpdateIngredientStock.cs" />
+    <Compile Include="DTOs\Product\Stock\Product\ProductStockMovement\dtoCreateProductStockMovement.cs" />
+    <Compile Include="DTOs\Product\Stock\Product\ProductStockMovement\dtoDetailProductStockMovement.cs" />
+    <Compile Include="DTOs\Product\Stock\Product\ProductStockMovement\dtoListProductStockMovement.cs" />
+    <Compile Include="DTOs\Product\Stock\Product\ProductStockMovement\dtoProductStockMovement.cs" />
+    <Compile Include="DTOs\Product\Stock\Product\ProductStockMovement\dtoUpdateProductStockMovement.cs" />
+    <Compile Include="DTOs\Product\Stock\Product\ProductStock\dtoCreateProductStock.cs" />
+    <Compile Include="DTOs\Product\Stock\Product\ProductStock\dtoDetailProductStock.cs" />
+    <Compile Include="DTOs\Product\Stock\Product\ProductStock\dtoListProductStock.cs" />
+    <Compile Include="DTOs\Product\Stock\Product\ProductStock\dtoProductStock.cs" />
+    <Compile Include="DTOs\Product\Stock\Product\ProductStock\dtoUpdateProductStock.cs" />
+    <Compile Include="DTOs\Product\Stock\StockMovementType\dtoCreateStockMovementType.cs" />
+    <Compile Include="DTOs\Product\Stock\StockMovementType\dtoDetailStockMovementType.cs" />
+    <Compile Include="DTOs\Product\Stock\StockMovementType\dtoListStockMovementType.cs" />
+    <Compile Include="DTOs\Product\Stock\StockMovementType\dtoStockMovementType.cs" />
+    <Compile Include="DTOs\Product\Stock\StockMovementType\dtoUpdateStockMovementType.cs" />
+    <Compile Include="DTOs\Product\Unit\dtoCreateUnit.cs" />
+    <Compile Include="DTOs\Product\Unit\dtoDetailUnit.cs" />
+    <Compile Include="DTOs\Product\Unit\dtoListUnit.cs" />
+    <Compile Include="DTOs\Product\Unit\dtoUnit.cs" />
+    <Compile Include="DTOs\Product\Unit\dtoUpdateUnit.cs" />
+    <Compile Include="DTOs\Product\Variant\dtoCreateProductVariant.cs" />
+    <Compile Include="DTOs\Product\Variant\dtoDetailProductVariant.cs" />
+    <Compile Include="DTOs\Product\Variant\dtoListProductVariant.cs" />
+    <Compile Include="DTOs\Product\Variant\dtoProductVariant.cs" />
+    <Compile Include="DTOs\Product\Variant\dtoUpdateProductVariant.cs" />
+    <Compile Include="DTOs\Purchase\Purchase\Ingredient\dtoCreateIngredientPurchaseOrderItem.cs" />
+    <Compile Include="DTOs\Purchase\Purchase\Ingredient\dtoDetailIngredientPurchaseOrderItem.cs" />
+    <Compile Include="DTOs\Purchase\Purchase\Ingredient\dtoIngredientPurchaseOrderItem.cs" />
+    <Compile Include="DTOs\Purchase\Purchase\Ingredient\dtoListIngredientPurchaseOrderItem.cs" />
+    <Compile Include="DTOs\Purchase\Purchase\Ingredient\dtoUpdateIngredientPurchaseOrderItem.cs" />
+    <Compile Include="DTOs\Purchase\Purchase\Product\dtoCreateProductPurchaseOrderItem.cs" />
+    <Compile Include="DTOs\Purchase\Purchase\Product\dtoDetailProductPurchaseOrderItem.cs" />
+    <Compile Include="DTOs\Purchase\Purchase\Product\dtoListProductPurchaseOrderItem.cs" />
+    <Compile Include="DTOs\Purchase\Purchase\Product\dtoProductPurchaseOrderItem.cs" />
+    <Compile Include="DTOs\Purchase\Purchase\Product\dtoUpdateProductPurchaseOrderItem.cs" />
+    <Compile Include="DTOs\Purchase\Purchase\Purchase\PurchaseOrderState\dtoCreatePurchaseOrderState.cs" />
+    <Compile Include="DTOs\Purchase\Purchase\Purchase\PurchaseOrderState\dtoDetailPurchaseOrderState.cs" />
+    <Compile Include="DTOs\Purchase\Purchase\Purchase\PurchaseOrderState\dtoListPurchaseOrderState.cs" />
+    <Compile Include="DTOs\Purchase\Purchase\Purchase\PurchaseOrderState\dtoPurchaseOrderState.cs" />
+    <Compile Include="DTOs\Purchase\Purchase\Purchase\PurchaseOrderState\dtoUpdatePurchaseOrderState.cs" />
+    <Compile Include="DTOs\Purchase\Purchase\Purchase\PurchaseOrder\dtoCreatePurchaseOrder.cs" />
+    <Compile Include="DTOs\Purchase\Purchase\Purchase\PurchaseOrder\dtoDetailPurchaseOrder.cs" />
+    <Compile Include="DTOs\Purchase\Purchase\Purchase\PurchaseOrder\dtoListPurchaseOrder.cs" />
+    <Compile Include="DTOs\Purchase\Purchase\Purchase\PurchaseOrder\dtoPurchaseOrder.cs" />
+    <Compile Include="DTOs\Purchase\Purchase\Purchase\PurchaseOrder\dtoUpdatePurchaseOrder.cs" />
+    <Compile Include="DTOs\Purchase\Supplier\dtoCreateSupplier.cs" />
+    <Compile Include="DTOs\Purchase\Supplier\dtoDetailSupplier.cs" />
+    <Compile Include="DTOs\Purchase\Supplier\dtoListSupplier.cs" />
+    <Compile Include="DTOs\Purchase\Supplier\dtoSupplier.cs" />
+    <Compile Include="DTOs\Purchase\Supplier\dtoUpdateSupplier.cs" />
+    <Compile Include="DTOs\Reservation\Customer\dtoCreateCustomer.cs" />
+    <Compile Include="DTOs\Reservation\Customer\dtoCustomer.cs" />
+    <Compile Include="DTOs\Reservation\Customer\dtoDetailCustomer.cs" />
+    <Compile Include="DTOs\Reservation\Customer\dtoListCustomer.cs" />
+    <Compile Include="DTOs\Reservation\Customer\dtoUpdateCustomer.cs" />
+    <Compile Include="DTOs\Reservation\Reservation\ReservationState\dtoCreateReservationState.cs" />
+    <Compile Include="DTOs\Reservation\Reservation\ReservationState\dtoDetailReservationState.cs" />
+    <Compile Include="DTOs\Reservation\Reservation\ReservationState\dtoListReservationState.cs" />
+    <Compile Include="DTOs\Reservation\Reservation\ReservationState\dtoReservationState.cs" />
+    <Compile Include="DTOs\Reservation\Reservation\ReservationState\dtoUpdateReservationState.cs" />
+    <Compile Include="DTOs\Reservation\Reservation\Reservation\dtoCreateReservation.cs" />
+    <Compile Include="DTOs\Reservation\Reservation\Reservation\dtoDetailReservation.cs" />
+    <Compile Include="DTOs\Reservation\Reservation\Reservation\dtoListReservation.cs" />
+    <Compile Include="DTOs\Reservation\Reservation\Reservation\dtoReservation.cs" />
+    <Compile Include="DTOs\Reservation\Reservation\Reservation\dtoUpdateReservation.cs" />
+    <Compile Include="DTOs\Setting\Printer\PrintDestination\dtoCreatePrintDestination.cs" />
+    <Compile Include="DTOs\Setting\Printer\PrintDestination\dtoDetailPrintDestination.cs" />
+    <Compile Include="DTOs\Setting\Printer\PrintDestination\dtoListPrintDestination.cs" />
+    <Compile Include="DTOs\Setting\Printer\PrintDestination\dtoPrintDestination.cs" />
+    <Compile Include="DTOs\Setting\Printer\PrintDestination\dtoUpdatePrintDestination.cs" />
+    <Compile Include="DTOs\Setting\Printer\PrinterConnectionType\dtoCreatePrinterConnectionType.cs" />
+    <Compile Include="DTOs\Setting\Printer\PrinterConnectionType\dtoDetailPrinterConnectionType.cs" />
+    <Compile Include="DTOs\Setting\Printer\PrinterConnectionType\dtoListPrinterConnectionType.cs" />
+    <Compile Include="DTOs\Setting\Printer\PrinterConnectionType\dtoPrinterConnectionType.cs" />
+    <Compile Include="DTOs\Setting\Printer\PrinterConnectionType\dtoUpdatePrinterConnectionType.cs" />
+    <Compile Include="DTOs\Setting\Printer\Printer\dtoCreatePrinter.cs" />
+    <Compile Include="DTOs\Setting\Printer\Printer\dtoDetailPrinter.cs" />
+    <Compile Include="DTOs\Setting\Printer\Printer\dtoListPrinter.cs" />
+    <Compile Include="DTOs\Setting\Printer\Printer\dtoPrinter.cs" />
+    <Compile Include="DTOs\Setting\Printer\Printer\dtoUpdatePrinter.cs" />
+    <Compile Include="DTOs\Setting\Printer\PrintState\dtoCreatePrintState.cs" />
+    <Compile Include="DTOs\Setting\Printer\PrintState\dtoDetailPrintState.cs" />
+    <Compile Include="DTOs\Setting\Printer\PrintState\dtoListPrintState.cs" />
+    <Compile Include="DTOs\Setting\Printer\PrintState\dtoPrintState.cs" />
+    <Compile Include="DTOs\Setting\Printer\PrintState\dtoUpdatePrintState.cs" />
+    <Compile Include="DTOs\Setting\Save\SaveType\dtoCreateSaveType.cs" />
+    <Compile Include="DTOs\Setting\Save\SaveType\dtoDetailSaveType.cs" />
+    <Compile Include="DTOs\Setting\Save\SaveType\dtoListSaveType.cs" />
+    <Compile Include="DTOs\Setting\Save\SaveType\dtoSaveType.cs" />
+    <Compile Include="DTOs\Setting\Save\SaveType\dtoUpdateSaveType.cs" />
+    <Compile Include="DTOs\Setting\Save\Save\dtoCreateSave.cs" />
+    <Compile Include="DTOs\Setting\Save\Save\dtoDetailSave.cs" />
+    <Compile Include="DTOs\Setting\Save\Save\dtoListSave.cs" />
+    <Compile Include="DTOs\Setting\Save\Save\dtoSave.cs" />
+    <Compile Include="DTOs\Setting\Save\Save\dtoUpdateSave.cs" />
+    <Compile Include="DTOs\Table\Table\TableState\dtoCreateTableState.cs" />
+    <Compile Include="DTOs\Table\Table\TableState\dtoDetailTableState.cs" />
+    <Compile Include="DTOs\Table\Table\TableState\dtoListTableState.cs" />
+    <Compile Include="DTOs\Table\Table\TableState\dtoTableState.cs" />
+    <Compile Include="DTOs\Table\Table\TableState\dtoUpdateTableState.cs" />
+    <Compile Include="DTOs\Table\Table\Table\dtoCreateTable.cs" />
+    <Compile Include="DTOs\Table\Table\Table\dtoDetailTable.cs" />
+    <Compile Include="DTOs\Table\Table\Table\dtoListTable.cs" />
+    <Compile Include="DTOs\Table\Table\Table\dtoTable.cs" />
+    <Compile Include="DTOs\Table\Table\Table\dtoUpdateTable.cs" />
+    <Compile Include="DTOs\User\CashShift\dtoCashShift.cs" />
+    <Compile Include="DTOs\User\CashShift\dtoCreateCashShift.cs" />
+    <Compile Include="DTOs\User\CashShift\dtoDetailCashShift.cs" />
+    <Compile Include="DTOs\User\CashShift\dtoListCashShift.cs" />
+    <Compile Include="DTOs\User\CashShift\dtoUpdateCashShift.cs" />
+    <Compile Include="DTOs\User\Role\dtoCreateRole.cs" />
+    <Compile Include="DTOs\User\Role\dtoDetailRole.cs" />
+    <Compile Include="DTOs\User\Role\dtoListRole.cs" />
+    <Compile Include="DTOs\User\Role\dtoRole.cs" />
+    <Compile Include="DTOs\User\Role\dtoUpdateRole.cs" />
+    <Compile Include="DTOs\User\User\dtoCreateUser.cs" />
+    <Compile Include="DTOs\User\User\dtoDetailUser.cs" />
+    <Compile Include="DTOs\User\User\dtoListUser.cs" />
+    <Compile Include="DTOs\User\User\dtoUpdateUser.cs" />
+    <Compile Include="DTOs\User\User\dtoUser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

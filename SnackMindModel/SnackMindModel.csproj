@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E374E041-E4DF-4B07-96C8-8F3B489A345D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SnackMindModel</RootNamespace>
+    <AssemblyName>SnackMindModel</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\Order\Order\mdlOrder.cs" />
+    <Compile Include="Model\Order\Order\mdlOrderItem.cs" />
+    <Compile Include="Model\Order\Order\mdlOrderItemState.cs" />
+    <Compile Include="Model\Payment\Payment\mdlPayment.cs" />
+    <Compile Include="Model\Payment\Payment\mdlPaymentType.cs" />
+    <Compile Include="Model\Place\Branch\mdlBranch.cs" />
+    <Compile Include="Model\Place\Firm\mdlFirm.cs" />
+    <Compile Include="Model\Place\Warehouse\mdlWarehouse.cs" />
+    <Compile Include="Model\Place\Zone\mdlZone.cs" />
+    <Compile Include="Model\Product\Category\mdlParentCategory.cs" />
+    <Compile Include="Model\Product\Category\mdlProductCategory.cs" />
+    <Compile Include="Model\Product\Ingredient\mdlIngredient.cs" />
+    <Compile Include="Model\Product\Product\mdlProduct.cs" />
+    <Compile Include="Model\Product\Recipe\mdlRecipe.cs" />
+    <Compile Include="Model\Product\Recipe\mdlRecipeItem.cs" />
+    <Compile Include="Model\Product\Stock\Ingredient\mdlIngredientStock.cs" />
+    <Compile Include="Model\Product\Stock\Ingredient\mdlIngredientStockMovement.cs" />
+    <Compile Include="Model\Product\Stock\mdlStockMovementType.cs" />
+    <Compile Include="Model\Product\Stock\Product\mdlProductStock.cs" />
+    <Compile Include="Model\Product\Stock\Product\mdlProductStockMovement.cs" />
+    <Compile Include="Model\Product\Unit\mdlUnit.cs" />
+    <Compile Include="Model\Product\Variant\mdlProductVariant.cs" />
+    <Compile Include="Model\Purchase\Purchase\Ingredient\mdlIngredientPurchaseOrderItem.cs" />
+    <Compile Include="Model\Purchase\Purchase\Product\mdlProductPurchaseOrderItem.cs" />
+    <Compile Include="Model\Purchase\Purchase\Purchase\mdlPurchaseOrder.cs" />
+    <Compile Include="Model\Purchase\Purchase\Purchase\mdlPurchaseOrderState.cs" />
+    <Compile Include="Model\Purchase\Supplier\mdlSupplier.cs" />
+    <Compile Include="Model\Reservation\Customer\mdlCustomer.cs" />
+    <Compile Include="Model\Reservation\Reservation\mdlReservation.cs" />
+    <Compile Include="Model\Reservation\Reservation\mdlReservationState.cs" />
+    <Compile Include="Model\Setting\Printer\mdlPrintDestination.cs" />
+    <Compile Include="Model\Setting\Printer\mdlPrinter.cs" />
+    <Compile Include="Model\Setting\Printer\mdlPrinterConnectionType.cs" />
+    <Compile Include="Model\Setting\Printer\mdlPrintState.cs" />
+    <Compile Include="Model\Setting\Save\mdlSave.cs" />
+    <Compile Include="Model\Setting\Save\mdlSaveType.cs" />
+    <Compile Include="Model\Table\Table\mdlTable.cs" />
+    <Compile Include="Model\Table\Table\mdlTableState.cs" />
+    <Compile Include="Model\User\CashShift\mdlCashShift.cs" />
+    <Compile Include="Model\User\Role\mdlRole.cs" />
+    <Compile Include="Model\User\User\mdlUser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SnackMindCore\SnackMindCore.csproj">
+      <Project>{b7065f21-f479-4d54-822c-9b3ff5deb78f}</Project>
+      <Name>SnackMindCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

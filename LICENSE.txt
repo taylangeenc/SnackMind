@@ -1,0 +1,19 @@
+SnackMind – Cafe & Restaurant Management System  
+Copyright (c) 2025 Taylan Genç. All Rights Reserved.
+
+This software and all associated source code, assets, designs, and documentation files are the exclusive intellectual property of Taylan Genç.
+
+Unauthorized use, reproduction, modification, distribution, reverse engineering, or sale of this software or any portion thereof is strictly prohibited without prior written consent from the author.
+
+This software is NOT open source. It is licensed solely for internal development and demonstration purposes by the author.
+
+By accessing or using any part of this project, you agree not to use the software for any commercial, educational, public, or private deployment or distribution without explicit, written permission from Taylan Genç.
+
+Any unauthorized use of this software constitutes a violation of Turkish and international intellectual property laws and may result in civil and criminal penalties.
+
+---
+
+For licensing inquiries or partnership proposals, please contact:
+
+📧 taylanfb0534@gmail.com  
+🔗 https://www.linkedin.com/in/taylan-genç-968984262/

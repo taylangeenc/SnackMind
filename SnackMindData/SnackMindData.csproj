@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E0BC8A52-9579-4886-BECF-79198F0F5CC1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SnackMindData</RootNamespace>
+    <AssemblyName>SnackMindData</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Context\SmContext.cs" />
+    <Compile Include="Migrations\202507090202240_SnackMind.cs" />
+    <Compile Include="Migrations\202507090202240_SnackMind.Designer.cs">
+      <DependentUpon>202507090202240_SnackMind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\BaseClass\SmRepository.cs" />
+    <Compile Include="Repository\Base\ISmRepository.cs" />
+    <Compile Include="Repository\IRepository\Order\Order\IOrderItemRepository.cs" />
+    <Compile Include="Repository\IRepository\Order\Order\IOrderItemStateRepository.cs" />
+    <Compile Include="Repository\IRepository\Order\Order\IOrderRepository.cs" />
+    <Compile Include="Repository\IRepository\Payment\Payment\IPaymentRepository.cs" />
+    <Compile Include="Repository\IRepository\Payment\Payment\IPaymentTypeRepository.cs" />
+    <Compile Include="Repository\IRepository\Place\Branch\IBranchRepository.cs" />
+    <Compile Include="Repository\IRepository\Place\Firm\IFirmRepository.cs" />
+    <Compile Include="Repository\IRepository\Place\Warehouse\IWarehouseRepository.cs" />
+    <Compile Include="Repository\IRepository\Place\Zone\IZoneRepository.cs" />
+    <Compile Include="Repository\IRepository\Product\Category\IParentCategoryRepository.cs" />
+    <Compile Include="Repository\IRepository\Product\Category\IProductCategoryRepository.cs" />
+    <Compile Include="Repository\IRepository\Product\Ingredient\IIngredientRepository.cs" />
+    <Compile Include="Repository\IRepository\Product\Product\IProductRepository.cs" />
+    <Compile Include="Repository\IRepository\Product\Recipe\IRecipeItemRepository.cs" />
+    <Compile Include="Repository\IRepository\Product\Recipe\IRecipeRepository.cs" />
+    <Compile Include="Repository\IRepository\Product\Stock\Ingredient\IIngredientStockMovementRepository.cs" />
+    <Compile Include="Repository\IRepository\Product\Stock\Ingredient\IIngredientStockRepository.cs" />
+    <Compile Include="Repository\IRepository\Product\Stock\IStockMovementTypeRepository.cs" />
+    <Compile Include="Repository\IRepository\Product\Stock\Product\IProductStockMovementRepository.cs" />
+    <Compile Include="Repository\IRepository\Product\Stock\Product\IProductStockRepository.cs" />
+    <Compile Include="Repository\IRepository\Product\Unit\IUnitRepository.cs" />
+    <Compile Include="Repository\IRepository\Product\Variant\IProductVariantRepository.cs" />
+    <Compile Include="Repository\IRepository\Purchase\Purchase\Ingredient\IIngredientPurchaseOrderItemRepository.cs" />
+    <Compile Include="Repository\IRepository\Purchase\Purchase\Product\IProductPurchaseOrderItemRepository.cs" />
+    <Compile Include="Repository\IRepository\Purchase\Purchase\Purchase\IPurchaseOrderRepository.cs" />
+    <Compile Include="Repository\IRepository\Purchase\Purchase\Purchase\IPurchaseOrderStateRepository.cs" />
+    <Compile Include="Repository\IRepository\Purchase\Supplier\ISupplierRepository.cs" />
+    <Compile Include="Repository\IRepository\Reservation\Customer\ICustomerRepository.cs" />
+    <Compile Include="Repository\IRepository\Reservation\Reservation\IReservationRepository.cs" />
+    <Compile Include="Repository\IRepository\Reservation\Reservation\IReservationStateRepository.cs" />
+    <Compile Include="Repository\IRepository\Setting\Printer\IPrintDestinationRepository.cs" />
+    <Compile Include="Repository\IRepository\Setting\Printer\IPrinterConnectionTypeRepository.cs" />
+    <Compile Include="Repository\IRepository\Setting\Printer\IPrinterRepository.cs" />
+    <Compile Include="Repository\IRepository\Setting\Printer\IPrintStateRepository.cs" />
+    <Compile Include="Repository\IRepository\Setting\Save\ISaveRepository.cs" />
+    <Compile Include="Repository\IRepository\Setting\Save\ISaveTypeRepository.cs" />
+    <Compile Include="Repository\IRepository\Table\Table\ITableRepository.cs" />
+    <Compile Include="Repository\IRepository\Table\Table\ITableStateRepository.cs" />
+    <Compile Include="Repository\IRepository\User\CashShift\ICashShiftRepository.cs" />
+    <Compile Include="Repository\IRepository\User\Role\IRoleRepository.cs" />
+    <Compile Include="Repository\IRepository\User\User\IUserRepository.cs" />
+    <Compile Include="Repository\Repository\Order\Order\OrderItemRepository.cs" />
+    <Compile Include="Repository\Repository\Order\Order\OrderItemStateRepository.cs" />
+    <Compile Include="Repository\Repository\Order\Order\OrderRepository.cs" />
+    <Compile Include="Repository\Repository\Payment\Payment\PaymentRepository.cs" />
+    <Compile Include="Repository\Repository\Payment\Payment\PaymentTypeRepository.cs" />
+    <Compile Include="Repository\Repository\Place\Branch\BranchRepository.cs" />
+    <Compile Include="Repository\Repository\Place\Firm\FirmRepository.cs" />
+    <Compile Include="Repository\Repository\Place\Warehouse\WarehouseRepository.cs" />
+    <Compile Include="Repository\Repository\Place\Zone\ZoneRepository.cs" />
+    <Compile Include="Repository\Repository\Product\Category\ParentCategoryRepository.cs" />
+    <Compile Include="Repository\Repository\Product\Category\ProductCategoryRepository.cs" />
+    <Compile Include="Repository\Repository\Product\Ingredient\IngredientRepository.cs" />
+    <Compile Include="Repository\Repository\Product\Product\ProductRepository.cs" />
+    <Compile Include="Repository\Repository\Product\Recipe\RecipeItemRepository.cs" />
+    <Compile Include="Repository\Repository\Product\Recipe\RecipeRepository.cs" />
+    <Compile Include="Repository\Repository\Product\Stock\Ingredient\IngredientStockMovementRepository.cs" />
+    <Compile Include="Repository\Repository\Product\Stock\Ingredient\IngredientStockRepository.cs" />
+    <Compile Include="Repository\Repository\Product\Stock\Product\ProductStockMovementRepository.cs" />
+    <Compile Include="Repository\Repository\Product\Stock\Product\ProductStockRepository.cs" />
+    <Compile Include="Repository\Repository\Product\Stock\StockMovementTypeRepository.cs" />
+    <Compile Include="Repository\Repository\Product\Unit\UnitRepository.cs" />
+    <Compile Include="Repository\Repository\Product\Variant\ProductVariantRepository.cs" />
+    <Compile Include="Repository\Repository\Purchase\Purchase\Ingredient\IngredientPurchaseOrderItemRepository.cs" />
+    <Compile Include="Repository\Repository\Purchase\Purchase\Product\ProductPurchaseOrderItemRepository.cs" />
+    <Compile Include="Repository\Repository\Purchase\Purchase\Purchase\PurchaseOrderRepository.cs" />
+    <Compile Include="Repository\Repository\Purchase\Purchase\Purchase\PurchaseOrderStateRepository.cs" />
+    <Compile Include="Repository\Repository\Purchase\Supplier\SupplierRepository.cs" />
+    <Compile Include="Repository\Repository\Reservation\Customer\CustomerRepository.cs" />
+    <Compile Include="Repository\Repository\Reservation\Reservation\ReservationRepository.cs" />
+    <Compile Include="Repository\Repository\Reservation\Reservation\ReservationStateRepository.cs" />
+    <Compile Include="Repository\Repository\Setting\Printer\PrintDestinationRepository.cs" />
+    <Compile Include="Repository\Repository\Setting\Printer\PrinterConnectionTypeRepository.cs" />
+    <Compile Include="Repository\Repository\Setting\Printer\PrinterRepository.cs" />
+    <Compile Include="Repository\Repository\Setting\Printer\PrintStateRepository.cs" />
+    <Compile Include="Repository\Repository\Setting\Save\SaveRepository.cs" />
+    <Compile Include="Repository\Repository\Setting\Save\SaveTypeRepository.cs" />
+    <Compile Include="Repository\Repository\Table\Table\TableRepository.cs" />
+    <Compile Include="Repository\Repository\Table\Table\TableStateRepository.cs" />
+    <Compile Include="Repository\Repository\User\CashShift\CashShiftRepository.cs" />
+    <Compile Include="Repository\Repository\User\Role\RoleRepository.cs" />
+    <Compile Include="Repository\Repository\User\User\UserRepository.cs" />
+    <Compile Include="UnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\UnitOfWork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SnackMindCore\SnackMindCore.csproj">
+      <Project>{b7065f21-f479-4d54-822c-9b3ff5deb78f}</Project>
+      <Name>SnackMindCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SnackMindModel\SnackMindModel.csproj">
+      <Project>{e374e041-e4df-4b07-96c8-8f3b489a345d}</Project>
+      <Name>SnackMindModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202507090202240_SnackMind.resx">
+      <DependentUpon>202507090202240_SnackMind.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+</Project>
