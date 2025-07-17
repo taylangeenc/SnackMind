@@ -34,11 +34,22 @@ namespace SnackMindData.Repository.BaseClass
             return Task.CompletedTask;
         }
 
+        public async Task<bool> AnyAsync(Expression<Func<T, bool>> filter)
+        {
+            return await _dbSet.AnyAsync(filter);
+        }
+
         public async Task Delete(Guid reference)
         {
+            //var entity = await _dbSet.FindAsync(reference);
+            //if (entity != null)
+            //    _dbSet.Remove(entity);
             var entity = await _dbSet.FindAsync(reference);
             if (entity != null)
-                _dbSet.Remove(entity);
+            {
+                entity.IsActive = false;
+                await Update(entity);
+            }
         }
 
         public async Task DeleteRange(IEnumerable<Guid> references)

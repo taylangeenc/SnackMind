@@ -31,8 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.7, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.7\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.HashCode, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.HashCode.6.0.0\lib\net462\Microsoft.Bcl.HashCode.dll</HintPath>
@@ -76,6 +76,9 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.8.0.0\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+    <Reference Include="System.IO.Pipelines, Version=9.0.0.7, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.9.0.7\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
     </Reference>
@@ -86,11 +89,11 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
-    <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Encodings.Web.8.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    <Reference Include="System.Text.Encodings.Web, Version=9.0.0.7, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.9.0.7\lib\net462\System.Text.Encodings.Web.dll</HintPath>
     </Reference>
-    <Reference Include="System.Text.Json, Version=8.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Json.8.0.4\lib\net462\System.Text.Json.dll</HintPath>
+    <Reference Include="System.Text.Json, Version=9.0.0.7, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.9.0.7\lib\net462\System.Text.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
@@ -109,16 +112,99 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\BaseClass\SmService.cs" />
     <Compile Include="Service\Base\ISmService.cs" />
+    <Compile Include="Service\IService\Order\Order\IOrderItemService.cs" />
+    <Compile Include="Service\IService\Order\Order\IOrderItemState.cs" />
+    <Compile Include="Service\IService\Order\Order\IOrderService.cs" />
+    <Compile Include="Service\IService\Payment\Payment\IPaymentService.cs" />
+    <Compile Include="Service\IService\Payment\Payment\IPaymentTypeService.cs" />
+    <Compile Include="Service\IService\Place\Branch\IBranchService.cs" />
+    <Compile Include="Service\IService\Place\Firm\IFirmService.cs" />
+    <Compile Include="Service\IService\Place\Warehouse\IWarehouseService.cs" />
+    <Compile Include="Service\IService\Place\Zone\IZoneService.cs" />
+    <Compile Include="Service\IService\Product\Category\IParentCategoryService.cs" />
+    <Compile Include="Service\IService\Product\Category\IProductCategoryService.cs" />
+    <Compile Include="Service\IService\Product\Ingredient\IIngredientService.cs" />
+    <Compile Include="Service\IService\Product\Product\IProductService.cs" />
+    <Compile Include="Service\IService\Product\Recipe\IRecipeItemService.cs" />
+    <Compile Include="Service\IService\Product\Recipe\IRecipeService.cs" />
+    <Compile Include="Service\IService\Product\Stock\Ingredient\IIngredientStockMovementService.cs" />
+    <Compile Include="Service\IService\Product\Stock\Ingredient\IIngredientStockService.cs" />
+    <Compile Include="Service\IService\Product\Stock\IStockMovementTypeService.cs" />
+    <Compile Include="Service\IService\Product\Stock\Product\IProductStockMovementService.cs" />
+    <Compile Include="Service\IService\Product\Stock\Product\IProductStockService.cs" />
+    <Compile Include="Service\IService\Product\Unit\IUnitService.cs" />
+    <Compile Include="Service\IService\Product\Variant\IProductVariantService.cs" />
+    <Compile Include="Service\IService\Purchase\Purchase\Ingredient\IIngredientPurchaseOrderItemService.cs" />
+    <Compile Include="Service\IService\Purchase\Purchase\Product\IProductPurchaseOrderItemService.cs" />
+    <Compile Include="Service\IService\Purchase\Purchase\Purchase\IPurchaseOrderService.cs" />
+    <Compile Include="Service\IService\Purchase\Purchase\Purchase\IPurchaseOrderStateService.cs" />
+    <Compile Include="Service\IService\Purchase\Supplier\ISupplierService.cs" />
+    <Compile Include="Service\IService\Reservation\Customer\ICustomerService.cs" />
+    <Compile Include="Service\IService\Reservation\Reservation\IReservationService.cs" />
+    <Compile Include="Service\IService\Reservation\Reservation\IReservationStateService.cs" />
+    <Compile Include="Service\IService\Setting\Printer\IPrintDestinationService.cs" />
+    <Compile Include="Service\IService\Setting\Printer\IPrinterConnectionTypeService.cs" />
+    <Compile Include="Service\IService\Setting\Printer\IPrinterService.cs" />
+    <Compile Include="Service\IService\Setting\Printer\IPrintStateService.cs" />
+    <Compile Include="Service\IService\Setting\Save\ISaveService.cs" />
+    <Compile Include="Service\IService\Setting\Save\ISaveTypeService.cs" />
+    <Compile Include="Service\IService\Table\Table\ITableService.cs" />
+    <Compile Include="Service\IService\Table\Table\ITableStateService.cs" />
+    <Compile Include="Service\IService\User\CashShift\ICashShiftService.cs" />
+    <Compile Include="Service\IService\User\Role\IRoleService.cs" />
+    <Compile Include="Service\IService\User\User\IUserService.cs" />
+    <Compile Include="Service\Service\Order\Order\OrderItemService.cs" />
+    <Compile Include="Service\Service\Order\Order\OrderItemStateService.cs" />
+    <Compile Include="Service\Service\Order\Order\OrderService.cs" />
+    <Compile Include="Service\Service\Payment\Payment\PaymentService.cs" />
+    <Compile Include="Service\Service\Payment\Payment\PaymentTypeService.cs" />
+    <Compile Include="Service\Service\Place\Branch\BranchService.cs" />
+    <Compile Include="Service\Service\Place\Firm\FirmService.cs" />
+    <Compile Include="Service\Service\Place\Warehouse\WarehouseService.cs" />
+    <Compile Include="Service\Service\Place\Zone\ZoneService.cs" />
+    <Compile Include="Service\Service\Product\Category\ParentCategoryService.cs" />
+    <Compile Include="Service\Service\Product\Category\ProductCategoryService.cs" />
+    <Compile Include="Service\Service\Product\Ingredient\IngredientService.cs" />
+    <Compile Include="Service\Service\Product\Product\ProductService.cs" />
+    <Compile Include="Service\Service\Product\Recipe\RecipeItemService.cs" />
+    <Compile Include="Service\Service\Product\Recipe\RecipeService.cs" />
+    <Compile Include="Service\Service\Product\Stock\Ingredient\IngredientStockMovementService.cs" />
+    <Compile Include="Service\Service\Product\Stock\Ingredient\IngredientStockService.cs" />
+    <Compile Include="Service\Service\Product\Stock\Product\ProductStockMovementService.cs" />
+    <Compile Include="Service\Service\Product\Stock\Product\ProductStockService.cs" />
+    <Compile Include="Service\Service\Product\Stock\StockMovementTypeService.cs" />
+    <Compile Include="Service\Service\Product\Unit\UnitService.cs" />
+    <Compile Include="Service\Service\Product\Variant\ProductVariantService.cs" />
+    <Compile Include="Service\Service\Purchase\Purchase\Ingredient\IngredientPurchaseOrderItemService.cs" />
+    <Compile Include="Service\Service\Purchase\Purchase\Product\ProductPurchaseOrderItemService.cs" />
+    <Compile Include="Service\Service\Purchase\Purchase\Purchase\PurchaseOrderService.cs" />
+    <Compile Include="Service\Service\Purchase\Purchase\Purchase\PurchaseOrderStateService.cs" />
+    <Compile Include="Service\Service\Purchase\Supplier\SupplierService.cs" />
+    <Compile Include="Service\Service\Reservation\Customer\CustomerService.cs" />
+    <Compile Include="Service\Service\Reservation\Reservation\ReservationService.cs" />
+    <Compile Include="Service\Service\Reservation\Reservation\ReservationStateService.cs" />
+    <Compile Include="Service\Service\Setting\Printer\PrintDestinationService.cs" />
+    <Compile Include="Service\Service\Setting\Printer\PrinterConnectionTypeService.cs" />
+    <Compile Include="Service\Service\Setting\Printer\PrinterService.cs" />
+    <Compile Include="Service\Service\Setting\Printer\PrintStateService.cs" />
+    <Compile Include="Service\Service\Setting\Save\SaveService.cs" />
+    <Compile Include="Service\Service\Setting\Save\SaveTypeService.cs" />
+    <Compile Include="Service\Service\Table\Table\TableService.cs" />
+    <Compile Include="Service\Service\Table\Table\TableStateService.cs" />
+    <Compile Include="Service\Service\User\CashShift\CashShiftService.cs" />
+    <Compile Include="Service\Service\User\Role\RoleService.cs" />
+    <Compile Include="Service\Service\User\User\UserService.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Service\IService\" />
-    <Folder Include="Service\Service\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SnackMindCore\SnackMindCore.csproj">
+      <Project>{b7065f21-f479-4d54-822c-9b3ff5deb78f}</Project>
+      <Name>SnackMindCore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SnackMindData\SnackMindData.csproj">
       <Project>{e0bc8a52-9579-4886-becf-79198f0f5cc1}</Project>
       <Name>SnackMindData</Name>

@@ -8,6 +8,7 @@ namespace SnackMindService.Service.Base
     public interface ISmService<T> where T : class
     {
         Task<T> GetByRefAsync(Guid reference);
+        Task<bool> AnyAsync(Expression<Func<T, bool>> filter);
         Task<List<T>> GetAllAsync(Expression<Func<T, bool>> filter = null);
 
         Task Add(T entity);

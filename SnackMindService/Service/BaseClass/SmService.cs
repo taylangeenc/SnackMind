@@ -23,11 +23,15 @@ namespace SnackMindService.Service.BaseClass
         {
             return await _repository.GetByRefAsync(reference);
         }
+        public async Task<bool> AnyAsync(Expression<Func<T, bool>> filter)
+        {
+            return await _repository.AnyAsync(filter);
+        }
         public async Task<List<T>> GetAllAsync(Expression<Func<T, bool>> filter = null)
         {
             return await _repository.GetAllAsync(filter);
         }
-        public async Task Add(T entity)
+        public virtual async Task Add(T entity)
         {
             await _repository.Add(entity);
         }
@@ -35,7 +39,7 @@ namespace SnackMindService.Service.BaseClass
         {
             await _repository.AddRange(entities);
         }
-        public async Task Update(T entity)
+        public virtual async Task Update(T entity)
         {
             await _repository.Update(entity);
         }
@@ -43,7 +47,7 @@ namespace SnackMindService.Service.BaseClass
         {
             await _repository.UpdateRange(entities);
         }
-        public async Task Delete(Guid reference)
+        public virtual async Task Delete(Guid reference)
         {
             await _repository.Delete(reference);
         }
